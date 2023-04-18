@@ -15,9 +15,9 @@ function Navbar() {
       <Link to="/about" >
         About
       </Link>
-     
+      <Link>
         <SuggestProduct className='component'/>
-     
+        </Link>
       <Link>
      Login/Register
       </Link>
