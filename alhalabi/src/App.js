@@ -1,6 +1,6 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
-import Home from "./pages/home";
+import Home from "./pages/home/home";
 import About from "./pages/about";
 import Order from "./pages/order";
 import Visiter from "./routes/visiter";
@@ -13,7 +13,7 @@ function App() {
             
         </Route>
         <Route path="/" element={<Visiter />}>
-          <Route path="/home" element={<Home/>}/>
+          <Route path="/" element={<Home/>}/>
           <Route path="/about" element={<About/>}/>
           <Route path="/order" element={<Order/>}/>
         </Route>

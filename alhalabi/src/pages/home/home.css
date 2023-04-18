@@ -1,0 +1,24 @@
+.Home{
+    width:85%;
+    margin: auto;
+    transform: translateY(-110px);
+}
+.inputHome{
+    width:80%;
+    padding: 20px;
+    background-color: var(--third);
+    transform: translateX(150px);
+    border:1px solid var(--accent);
+    font-size: 15px;
+    background-image:url('./alert.png') ;
+    background-repeat: no-repeat;
+    background-position: 10px;
+  
+}
+.inputHome:focus{
+    border:0.5x solid var(--accent);
+   
+}
+.inputHome::placeholder{
+    transform: translateX(25px);
+}

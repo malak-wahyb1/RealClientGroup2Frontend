@@ -1,0 +1,54 @@
+
+.navbar{
+    max-width: 90%;
+    margin: auto;
+    
+   transform: translateY(-50px);
+}
+.search{
+    width: 50%;
+    border-radius: 50px;
+    padding: 12px;
+    transform: translateY(-90px);
+   border: 0ch;
+   color: var(--accent);
+   background-color: rgb(245, 240, 240);
+   background-image: url('./search.png');
+   background-repeat: no-repeat;
+   background-position: 52pc;
+   background-size: 25px;
+}
+.search:focus{
+    outline: none;
+}
+.search::placeholder{
+    font-size: 15px;
+}
+.navLink{
+   transform: translateY(-130px);
+   margin-left:72pc;
+   display: flex;
+   
+}
+a{
+    padding: 20px;
+    text-decoration: none;
+    color: var(--accent);
+    font-size: 17px;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    line-height: 14px;
+    
+}
+.contactLink{
+background-color: var(--accent);
+color: white;
+border-radius: 30px;
+padding: 8px;
+}
+.imageOrder{
+    transform: translateY(6px);
+}
+.component{
+    display: inline;
+}
