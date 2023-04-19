@@ -30,13 +30,13 @@ function About() {
         referrerpolicy="no-referrer-when-downgrade"
       ></iframe>
       <div className="about-icons">
-        <a href="https://www.facebook.com">
+        <a href="https://www.facebook.com" target="_blank">
           <FaFacebook />
         </a>
-        <a href="https://www.instagram.com">
+        <a href="https://www.instagram.com" target="_blank">
           <FaInstagram />
         </a>
-        <a href="https://web.whatsapp.com/">
+        <a href="https://web.whatsapp.com/" target="_blank">
           <FaWhatsapp />
         </a>
       </div>
