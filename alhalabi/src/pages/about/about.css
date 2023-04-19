@@ -60,3 +60,37 @@
   font-size: 2rem;
   color: var(--accent);
 }
+
+@media only screen and (max-width: 600px) {
+  .about-content {
+    margin: auto;
+    width: 90%;
+    /* border: 1px solid var(--accent); */
+    padding: 3%;
+    background-color: var(--primary);
+    color: var(--accent);
+  }
+
+  .about-feedback-textarea {
+    width: 95%;
+  }
+
+  .about-icons a p {
+    display: none;
+  }
+
+  .about-map-icons {
+    flex-direction: column;
+    width: 95%;
+  }
+
+  .about-map {
+    width: 100%;
+    height: 100%;
+    /* padding: 0; */
+  }
+
+  .about-icons {
+    flex-direction: row;
+  }
+}
