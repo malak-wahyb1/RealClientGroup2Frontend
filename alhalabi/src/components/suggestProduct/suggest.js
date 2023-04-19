@@ -25,25 +25,24 @@ export default function FormDialog() {
         Suggest Product
       </Link>
       <Dialog open={open} onClose={handleClose} sx={{backgroundColor:"#e2eaf2"}}>
-        <DialogTitle>Subscribe</DialogTitle>
+        <DialogTitle>Enter your name</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            To subscribe to this website, please enter your email address here. We
-            will send updates occasionally.
+            Your suggestions is important to enhance our products
           </DialogContentText>
           <TextField
             autoFocus
             margin="dense"
             id="name"
-            label="Email Address"
-            type="email"
+            label="Name"
+            type="text"
             fullWidth
             variant="standard"
           />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleClose}>Subscribe</Button>
+          <Button onClick={handleClose}>Enter</Button>
         </DialogActions>
       </Dialog>
     </div>
