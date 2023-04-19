@@ -1,13 +1,13 @@
 .Home{
-    width:85%;
+    width:80%;
     margin: auto;
-    transform: translateY(-130px);
+    transform: translateY(-145px);
 }
 .inputHome{
-    width:80%;
+    width:88%;
     padding: 20px;
     background-color: var(--third);
-    transform: translateX(150px);
+    transform: translateX(100px);
     border:1px solid var(--accent);
     font-size: 17px;
     background-image:url('./delivery.png') ;
@@ -21,4 +21,31 @@
 }
 .inputHome::placeholder{
     transform: translateX(25px);
+
+}
+.allCategory-Header{
+    display: flex;
+    width:85%;
+    transform: translateX(130px);
+  
+    
+}
+.allCategory{
+    transform: translateY(3pc);
+}
+
+.product-card{
+    width: 90%;
+    transform: translateX(115px);
+   
+    display: flex;
+    justify-content: space-between;
+    
+}
+.allCategory-Title h1{
+    transform: translate(50px, -48px);
+    color: var(--secondary);
+}
+.seemore{
+    transform: translate(73pc);
 }

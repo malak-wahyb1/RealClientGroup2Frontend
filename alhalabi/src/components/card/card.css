@@ -1,0 +1,9 @@
+
+.cardAction{
+    display: flex;
+    justify-content: flex-end;
+}
+.imageCard{
+    display: flex;
+    justify-content: center;
+}
