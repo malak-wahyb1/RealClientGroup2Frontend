@@ -19,6 +19,17 @@ function About() {
         generated Lorem Ipsum is therefore always free from repetition, injected
         humour, or non-characteristic words etc.
       </div>
+      <label htmlFor="feedback" className="about-feedback-label">
+        Feedback:
+      </label>
+      <textarea
+        className="about-feedback-textarea"
+        id="feedback"
+        name="feedback"
+        rows="15"
+        cols="140"
+        placeholder="Enter your feedback here"
+      ></textarea>
       <div className="about-map-icons">
         <iframe
           className="about-map"
@@ -47,11 +58,6 @@ function About() {
           </a>
         </div>
       </div>
-      <form className="about-feedback-form">
-        <fieldset>
-          <legend>Drop us a Feedback</legend>
-        </fieldset>
-      </form>
     </div>
   );
 }
