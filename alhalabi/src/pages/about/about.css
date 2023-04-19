@@ -1,0 +1,22 @@
+.about-main {
+  padding: 8% 0;
+  background-color: var(--third);
+}
+
+.about-header1,
+.about-header3 {
+  text-align: center;
+  color: var(--accent);
+}
+
+.about-content {
+  background-color: lightgrey;
+  margin: auto;
+  /* color: var(--accent);   */
+  width: 40%;
+  border: 1px solid var(--accent);
+  padding: 50px;
+  /* margin: 20px; */
+  background-color: var(--primary);
+  color: var(--accent);
+}
