@@ -18,8 +18,10 @@ function Navbar() {
       <Link>
         <SuggestProduct className='component'/>
         </Link>
+
       <Link to="/signIn">
      SignIn/SignUp
+
       </Link>
       <Link className="contactLink">
       Contact us

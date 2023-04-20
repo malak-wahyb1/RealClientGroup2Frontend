@@ -12,6 +12,7 @@ function App() {
   return (
     <div className="App">
       <Routes>
+
         <Route path="/admin" element={<Admin />}>
             
         </Route> 
@@ -19,7 +20,13 @@ function App() {
           <Route path="/" element={<Home/>}/>
           <Route path="/about" element={<About/>}/>
           <Route path="/order" element={<Order/>}/>
-          
+
+        <Route path="/admin" element={<Admin />}></Route>
+        <Route path="/" element={<Visiter />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/order" element={<Order />} />
+
         </Route>
           <Route path="/signIn" element ={<SignIn/>}/>
           <Route path="/signUp"element={<SignUp/>}/>
