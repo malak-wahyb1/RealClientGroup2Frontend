@@ -1,6 +1,8 @@
 .about-main {
-  padding: 8% 0;
+ padding-top:5% ;
   background-color: var(--third);
+  transform: translateY(-11pc);
+  
 }
 
 .about-header1,
@@ -12,11 +14,9 @@
 .about-content {
   background-color: lightgrey;
   margin: auto;
-  /* color: var(--accent);   */
   width: 40%;
   border: 1px solid var(--accent);
   padding: 50px;
-  /* margin: 20px; */
   background-color: var(--primary);
   color: var(--accent);
 }
