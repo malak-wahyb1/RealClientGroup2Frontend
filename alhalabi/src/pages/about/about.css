@@ -4,6 +4,7 @@
   align-items: center;
   padding: 3% 0;
   background-color: var(--third);
+  transform: translateY(-11pc);
 }
 
 .about-header1,
@@ -15,9 +16,12 @@
 .about-content {
   background-color: lightgrey;
   margin: auto;
+
   width: 50%;
   border: 1px solid var(--accent);
   padding: 3%;
+
+
   background-color: var(--primary);
   color: var(--accent);
 }

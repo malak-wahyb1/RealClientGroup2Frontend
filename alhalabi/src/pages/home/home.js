@@ -1,7 +1,7 @@
 import "./home.css";
 import Categories from "./category.png";
-import CardProduct from "../../components/card/card";
 import { Link } from "react-router-dom";
+import AllCategories from "../../components/category/allCategory";
 
 function Home() {
   return (
@@ -24,10 +24,7 @@ function Home() {
         </section>
 
         <section className="product-card">
-          <CardProduct />
-          <CardProduct />
-          <CardProduct />
-          <CardProduct />
+         <AllCategories/>
         </section>
       </section>
     </div>
