@@ -10,6 +10,9 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import axios from "axios";
+import { toast,ToastContainer,} from "react-toastify";
+import { useState } from "react";
 
 import "./auth.css";
 
@@ -29,23 +32,38 @@ function Copyright(props) {
   );
 }
 
-const theme = createTheme();
+
 
 export default function SignUp() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+  const [name, setName] = useState("");
+  const [phoneNum, setPhoneNum] = useState("");
+  const [email, setEmail] = useState("");
+  const [address, setAddress] = useState("");
+  const [password, setPassword] = useState("");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post("http://localhost:4000/customer", {
+        name,
+        phoneNum,
+        email,
+        address,
+        password,
+      });
+      console.log(response.data);
+      toast.success("SignUp successfully!");
+    } catch (error) {
+      console.error(error);
+      toast.error("Error SignUp. Please try again.");
+    }
   };
 
   return (
     <section className="center">
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={createTheme()}>
         <Container component="main" maxWidth="xs">
           <CssBaseline />
+         
           <Box
             sx={{
               // marginTop: 5,
@@ -76,6 +94,7 @@ export default function SignUp() {
                     id="Name"
                     label=" Full Name"
                     autoFocus
+                    onChange={(e) => setName(e.target.value)}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -86,6 +105,7 @@ export default function SignUp() {
                     label="Phone number"
                     name="PhoneNumber"
                     autoComplete="phone number"
+                    onChange={(e) => setPhoneNum(e.target.value)}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -96,6 +116,7 @@ export default function SignUp() {
                     label="Email Address"
                     name="email"
                     autoComplete="email"
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -107,6 +128,7 @@ export default function SignUp() {
                     type="password"
                     id="password"
                     autoComplete="new-password"
+                    onChange={(e) => setPassword(e.target.value)}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -117,6 +139,7 @@ export default function SignUp() {
                     label="Your Address"
                     name="address"
                     autoComplete="address"
+                    onChange={(e) => setAddress(e.target.value)}
                   />
                 </Grid>
               </Grid>
@@ -125,6 +148,7 @@ export default function SignUp() {
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2, bgcolor: "#0097B2" }}
+                onClick={handleSubmit}
               >
                 Sign Up
               </Button>
@@ -147,9 +171,11 @@ export default function SignUp() {
               </Grid>
             </Box>
           </Box>
+    <ToastContainer/>
           <Copyright sx={{ mt: 8, mb: 0 }} />
         </Container>
       </ThemeProvider>
+     
     </section>
   );
 }
