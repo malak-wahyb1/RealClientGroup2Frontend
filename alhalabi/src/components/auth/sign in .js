@@ -13,6 +13,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import "./auth.css";
+import img from "./layout.png"
 function Copyright(props) {
   return (
     <Typography
@@ -43,17 +44,25 @@ export default function SignIn() {
 
   return (
     <section className="center">
-      <ThemeProvider theme={theme}>
+      <image className="signIn-img">
+      <img src={img} alt="" />
+      </image>
+      <section className="signIn-form">
+            <ThemeProvider theme={theme}>
+        
         <Container component="main" maxWidth="xs">
-          <CssBaseline />
+          <CssBaseline   />
+    
           <Box
-            sx={{
-              marginTop: 5,
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
+         sx={{
+          marginTop: 5,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          marginleft: 5,
+          float:"right"
+        }}
           >
             <Avatar sx={{ m: 3, bgcolor: "#0097B2", width: 75, height: 75 }}>
               <LockOutlinedIcon sx={{ width: 50, height: 50 }} />
@@ -121,6 +130,7 @@ export default function SignIn() {
           <Copyright sx={{ mt: 8, mb: 0 }} />
         </Container>
       </ThemeProvider>
+      </section>
     </section>
   );
 }

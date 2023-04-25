@@ -1,5 +1,12 @@
 .center{
 /* margin: auto; */
-transform: translateY(8pc);
-
+display: flex;
+align-items: center;
+justify-content: center;
+margin-top: 4em;
+}
+.signIn-img{
+width: 50%;
+height: 50%;
+margin-top: 12pc;
 }

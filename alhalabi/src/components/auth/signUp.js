@@ -13,7 +13,8 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import axios from "axios";
 import { toast,ToastContainer,} from "react-toastify";
 import { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
+import img from "./layout.png"
 import "./auth.css";
 
 function Copyright(props) {
@@ -35,6 +36,7 @@ function Copyright(props) {
 
 
 export default function SignUp() {
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [phoneNum, setPhoneNum] = useState("");
   const [email, setEmail] = useState("");
@@ -51,7 +53,8 @@ export default function SignUp() {
         password,
       });
       console.log(response.data);
-      toast.success("SignUp successfully!");
+      toast.success("SignUp successful!", { position: toast.POSITION.BOTTOM_LEFT });
+     navigate("/signIn");
     } catch (error) {
       console.error(error);
       toast.error("Error SignUp. Please try again.");
@@ -60,16 +63,23 @@ export default function SignUp() {
 
   return (
     <section className="center">
+           <image className="signIn-img">
+      <img src={img} alt="" />
+      </image>
+      <section>
       <ThemeProvider theme={createTheme()}>
         <Container component="main" maxWidth="xs">
           <CssBaseline />
-         
+     
+     
           <Box
             sx={{
-              // marginTop: 5,
+              marginTop: 5,
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
+              marginleft: 5,
+              float:"right"
             }}
           >
             <Avatar sx={{ m: 1, bgcolor: "#0097B2", width: 75, height: 75 }}>
@@ -175,7 +185,7 @@ export default function SignUp() {
           <Copyright sx={{ mt: 8, mb: 0 }} />
         </Container>
       </ThemeProvider>
-     
+      </section>
     </section>
   );
 }
