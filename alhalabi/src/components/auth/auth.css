@@ -2,11 +2,14 @@
 /* margin: auto; */
 display: flex;
 align-items: center;
-justify-content: center;
-margin-top: 4em;
+justify-content: space-around;
+min-height: 100vh;
+
+
 }
 .signIn-img{
 width: 50%;
-height: 50%;
-margin-top: 12pc;
+}
+.signup_form{
+    justify-self: flex-end;
 }
