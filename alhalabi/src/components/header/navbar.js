@@ -8,6 +8,7 @@ import InfoIcon from "@mui/icons-material/Info";
 import AssignmentIcon from "@mui/icons-material/Assignment";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import ContactPhoneIcon from "@mui/icons-material/ContactPhone";
+import FormDialog from "../suggestProduct/suggest";
 
 
 function Navbar() {
@@ -44,14 +45,14 @@ function Navbar() {
       </div>
       <ul className="end">
         <li>
-          <Link>About</Link>
-          <Link>
+          <Link to="/about">About</Link>
+          <Link to="/about">
             <InfoIcon />
           </Link>
         </li>
         <li>
-          <Link>Suggest Product</Link>
-          <Link>
+          <Link ><FormDialog/></Link>
+          <Link >
             <AssignmentIcon />
           </Link>
         </li>
@@ -70,12 +71,12 @@ function Navbar() {
           </Link>
         </li>
         <li>
-          <Link>
+          <Link to="/signin">
             <AccountCircleOutlinedIcon
               style={{ color: "#0097B2", width: "30", height: "30" }}
             />
           </Link>
-          <Link>
+          <Link to="/signin">
             <AccountCircleOutlinedIcon
               style={{ color: "#0097B2", width: "30", height: "30" }}
             />
