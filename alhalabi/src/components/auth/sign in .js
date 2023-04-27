@@ -18,6 +18,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/context";
 function Copyright(props) {
   return (
     <Typography
@@ -39,6 +40,7 @@ const theme = createTheme();
 export default function SignIn() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
