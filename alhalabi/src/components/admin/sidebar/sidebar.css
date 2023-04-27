@@ -71,7 +71,13 @@
   cursor: pointer;
 }
 
-
+.side-comp  a {
+  padding: 20px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 14px;
+}
 
 .active {
   background: var(--secondary);

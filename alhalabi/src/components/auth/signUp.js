@@ -43,7 +43,7 @@ export default function SignUp() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:4000/customer", {
+      const response = await axios.post(`${process.env.REACT_APP_URL}/customer`, {
         name,
         phoneNum,
         email,

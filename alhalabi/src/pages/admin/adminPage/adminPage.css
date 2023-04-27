@@ -84,3 +84,11 @@
   display: inline-block;
 }
 
+.admin_action{
+  margin-top: 2pc;
+  display: flex;
+}
+.admin_header{
+  display: flex;
+  align-items: center;
+}

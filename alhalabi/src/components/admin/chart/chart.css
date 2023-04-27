@@ -1,0 +1,25 @@
+.lineChart .barChart {
+    width: auto;
+    height: 300px;
+    
+     border-radius:10px ;
+}
+.pieChart{
+   width: auto;
+  
+    background-color: #f9b115;
+    border-radius:10px ;
+}
+.barChart{
+    background-color: #39f;
+    border-radius:10px ;
+}
+.lineChart{
+    background-color: #e55353;
+    border-radius:10px ;
+}
+.chart{
+    width: 1000px;
+    height: 500px;
+    margin-left: 250px;
+}

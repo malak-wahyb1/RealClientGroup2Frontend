@@ -8,6 +8,10 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { useState } from "react";
+import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 function Copyright(props) {
   return (
     <Typography
@@ -27,13 +31,21 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function LoginComponent() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+  const [password,setPassword]=useState();
+  const [username,setUsername]=useState();
+  const navigate =useNavigate()
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try{
+      const response = await axios.post(`${process.env.REACT_APP_URL}/auth/login`,{password,username});
+      console.log(response.data);
+      toast.success("logIn successful");
+      navigate("/dashboard/admin/AdminPage")
+    }catch(error){
+      console.log(error);
+      toast.error("Error SignIn, Please Try Again ")
+    }
+ 
   };
 
   return (
@@ -48,6 +60,7 @@ export default function LoginComponent() {
               flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
+
             }}
           >
             <Avatar sx={{ m: 3, bgcolor: "#0097B2", width: 75, height: 75 }}>
@@ -72,6 +85,7 @@ export default function LoginComponent() {
                 name="username"
                 autoComplete="username"
                 autoFocus
+                onChange={(e)=>setUsername(e.target.value)}
               />
               <TextField
                 margin="normal"
@@ -82,10 +96,11 @@ export default function LoginComponent() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                onChange={(e)=>setPassword(e.target.value)}
               />
             
               <Button
-                type="submit"
+                type="submit" 
                 fullWidth
                 variant="contained"
                 sx={{ mt: 2, mb: 2, background: "#0097B2" }}
@@ -97,6 +112,7 @@ export default function LoginComponent() {
           </Box>
           <Copyright />
         </Container>
+        <ToastContainer/>
       </ThemeProvider>
     </section>
   );
