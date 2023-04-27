@@ -26,7 +26,7 @@ function Navbar() {
       <Link className="contactLink">
       Contact us
       </Link>
-      <Link >
+      <Link to="/order">
      <img src={order} alt="order" className="imageOrder"/>
       </Link>
       </section>

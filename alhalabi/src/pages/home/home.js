@@ -2,6 +2,7 @@ import "./home.css";
 import Categories from "./category.png";
 import { Link } from "react-router-dom";
 import AllCategories from "../../components/category/allCategory";
+import CardProduct from "../../components/card/card";
 
 function Home() {
   return (
@@ -24,7 +25,8 @@ function Home() {
         </section>
 
         <section className="product-card">
-         <AllCategories/>
+        
+         <CardProduct/>
         </section>
       </section>
     </div>
