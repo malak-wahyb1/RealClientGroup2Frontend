@@ -37,7 +37,7 @@ export default function LoginComponent() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try{
-      const response = await axios.post("http://localhost:8000/auth/login",{password,username});
+      const response = await axios.post(`${process.env.REACT_APP_URL}/auth/login`,{password,username});
       console.log(response.data);
       toast.success("logIn successful");
       navigate("/dashboard/admin/AdminPage")
