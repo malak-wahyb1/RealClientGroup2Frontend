@@ -1,13 +1,32 @@
-import './footer.css'
-function Footer(){
+import "./footer.css";
+import React from "react";
+import { FaFacebook, FaInstagram, FaWhatsapp } from "react-icons/fa";
 
-return(
-    <section className="footer">
-        <h1>suggest order</h1>
-        <h1>
-            ur order
-        </h1>
-    </section>
-)
+function Footer() {
+  return (
+    <footer>
+      <ul>
+        <li>
+          <a href="https://www.facebook.com/">
+            <FaFacebook />
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/">
+            <FaInstagram />
+          </a>
+        </li>
+        <li>
+          <a href="https://api.whatsapp.com/send?phone=123456789">
+            <FaWhatsapp />
+          </a>
+        </li>
+        <li>
+          <a href="/dashboard/contact-us">Contact Us</a>
+        </li>
+      </ul>
+    </footer>
+  );
 }
-export default Footer
+
+export default Footer;

@@ -19,12 +19,12 @@ function Home() {
             <h1>ALL Products</h1>
           </section>
           <section className="seemore">
-            <Link >See more</Link>
+            <Link>See more</Link>
           </section>
         </section>
 
         <section className="product-card">
-         <AllCategories/>
+          <AllCategories />
         </section>
       </section>
     </div>

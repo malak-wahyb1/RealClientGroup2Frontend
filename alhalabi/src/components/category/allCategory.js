@@ -5,7 +5,7 @@ function AllCategories(){
     const [categories,setCategories]=useState([])
     useEffect(()=>{getCategories()},[])
     const getCategories=()=>{
-        axios.get(`http://localhost:4000/product/getOnlyFour`).then((response)=>{
+        axios.get(`http://localhost:8000/product/getOnlyFour`).then((response)=>{
             setCategories(response.data)
             console.log(response)
 

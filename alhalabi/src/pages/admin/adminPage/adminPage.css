@@ -84,3 +84,7 @@
   display: inline-block;
 }
 
+.admin_action{
+  margin-top: 2pc;
+  display: flex;
+}
