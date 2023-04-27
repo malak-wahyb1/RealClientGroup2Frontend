@@ -3,16 +3,14 @@ import axios from "axios";
 import PersonIcon from "@mui/icons-material/Person";
 import "./adminPage.css";
 import CustomizedMenus from "../../../components/admin/role";
-import Edit from "@mui/icons-material/Edit";
-import { Delete } from "@mui/icons-material";
-import DeleteComponent from "../../../components/admin/delete/delete";
-import EditAdmin from "../../../components/admin/editForm/editAdmin";
+
 function AdminPage() {
+ 
   const [Admin, setAdmin] = useState([]);
   useEffect(() => {
-    console.log(process.env.REACT_APP_URL);
+    console.log("http://localhost:4000");
     axios
-      .get(`${process.env.REACT_APP_URL}/auth`)
+      .get(`http://localhost:4000/auth`)
       .then((response) => {
         console.log(response.data.response);
         // add an `id` property to each row object
@@ -33,9 +31,7 @@ function AdminPage() {
       return "super admin";
     }
   }
-  function ChangeRole() {
-    return alert("hey");
-  }
+
   return (
     <section>
       <h1>Admin</h1>
@@ -43,16 +39,15 @@ function AdminPage() {
         {Admin.map((admin) => {
           return (
             <div class="card">
+              <div class="interests">
+                <CustomizedMenus  />
+              </div>
               <div class="left">
                 <div class="flag_wrapper">
                   <PersonIcon sx={{ marginTop: "17px" }} />
-                  <section className="admin_action">
-              <EditAdmin />
-              <DeleteComponent/>
-              </section>
                 </div>
               </div>
-            
+
               <div class="right">
                 <h2 class="name">{admin.username}</h2>
                 <p class="title">{admin.email}</p>
@@ -60,12 +55,7 @@ function AdminPage() {
                   {admin.first_name} {admin.last_name}
                 </p>
 
-                <div class="interests">
-                  <p class="interests_title">Role: </p>
-                  <span>
-                    <CustomizedMenus Role={Role(admin)} />
-                  </span>
-                </div>
+                <p class="interests_title">Role:{Role(admin)} </p>
               </div>
             </div>
           );

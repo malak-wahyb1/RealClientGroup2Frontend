@@ -1,6 +1,6 @@
 .card {
   background-color: #fff;
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   display: flex;
   flex-direction: row;
@@ -12,6 +12,7 @@
   color: var(--secondary);
   min-width: 350px;
   max-width: 350px;
+  position: relative;
 }
 
 .card:hover {
@@ -45,6 +46,7 @@
   position: relative;
   top: 5pc;
   left: 5px;
+
 }
 
 .flag {
@@ -66,7 +68,10 @@
 }
 
 .interests {
-  margin-top: 10px;
+  position:absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
 }
 
 .interests_title {
@@ -84,7 +89,4 @@
   display: inline-block;
 }
 
-.admin_action{
-  margin-top: 2pc;
-  display: flex;
-}
+
