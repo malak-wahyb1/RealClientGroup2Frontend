@@ -3,10 +3,9 @@ import axios from "axios";
 import PersonIcon from "@mui/icons-material/Person";
 import "./adminPage.css";
 import CustomizedMenus from "../../../components/admin/role";
-import Edit from "@mui/icons-material/Edit";
-import { Delete } from "@mui/icons-material";
 import DeleteComponent from "../../../components/admin/delete/delete";
 import EditAdmin from "../../../components/admin/editForm/editAdmin";
+import FormComponent from "../../../components/admin/addForm/addFom";
 function AdminPage() {
   const [Admin, setAdmin] = useState([]);
   useEffect(() => {
@@ -38,7 +37,18 @@ function AdminPage() {
   }
   return (
     <section>
+     
       <h1>Admin</h1>
+      <FormComponent
+  inputFields={[
+    { name: "userName", label: "User Name", type: "text" },
+    { name: "email", label: "Email", type: "email" },
+    { name: "FirstName", label: "FullName", type: "email" },
+
+  ]}
+  title="Admin"
+/>
+
       <section className="admin-cards">
         {Admin.map((admin) => {
           return (
@@ -70,7 +80,9 @@ function AdminPage() {
             </div>
           );
         })}
+    
       </section>
+   
     </section>
   );
 }
