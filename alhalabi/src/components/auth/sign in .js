@@ -43,7 +43,7 @@ export default function SignIn() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:4000/customer/login", {
+      const response = await axios.post("http://localhost:8000/customer/login", {
         email,
         password,
       });
