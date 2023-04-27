@@ -1,5 +1,6 @@
 import LoginComponent from '../../../components/admin/loginComponent/loginComponent.js'
 import './login.css'
+import axios from 'axios'
 import login from './login.png'
 function LoginAdmin(){
 return (
@@ -12,5 +13,5 @@ return (
     </section>
   </section>
 )
-}
+}axios.post()
 export default LoginAdmin
