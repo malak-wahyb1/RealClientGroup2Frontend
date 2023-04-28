@@ -6,10 +6,38 @@ import CardActions from "@mui/material/CardActions";
 import Typography from "@mui/material/Typography";
 import addtocart from "./addtocart.png";
 import product from "./product.avif";
-// import faker from "faker";
 import { useState } from "react";
 
 export default function CardProduct() {
+  const [task, setTask] = useState("");
+  const [tasks, setTasks] = useState([]);
+
+  useEffect(()=>{
+      if(localStorage.getItem("localTasks")){
+          const storedList = JSON.parse(localStorage.getItem("localTasks"));
+          setTasks(storedList);
+      }
+  },[])
+
+  const addTask = (e) => {
+    if (task) {
+      const newTask = { id: new Date().getTime().toString(), title: task };
+      setTasks([...tasks, newTask]);
+      localStorage.setItem("localTasks", JSON.stringify([...tasks, newTask]));
+      setTask("");
+    }
+  };
+
+  const handleDelete = (task)=>{
+      const deleted = tasks.filter((t)=>t.id !== task.id);
+      setTasks(deleted);
+      localStorage.setItem("localTasks", JSON.stringify(deleted))
+  }
+
+  const handleClear=()=>{
+      setTasks([]);
+      localStorage.removeItem("localTasks");
+  }
   const cards = [
     {
       
@@ -33,13 +61,7 @@ export default function CardProduct() {
       icon:addtocart
     },
   ];
-  // const productsArray= [...Array(20)].map(()=>({
-  //   id:faker.datatype.uuid(),
-  //   name:faker.commerce.productName(),
-  //   price:faker.commerce.price(),
-  //   image:faker.random.image(),
-  // })
-  // )
+  
 
   return (
     <div className="card-contain">
@@ -62,8 +84,10 @@ export default function CardProduct() {
         </CardContent>
         <section className="cardAction">
           <CardActions>
-            <button>
+            <button
+            onChange={(e)=>setTask(e.target.value)}>
             <img src={some.icon} alt="Addtocart" className="addtocart"
+            
             /></button>
             
           </CardActions>
@@ -72,38 +96,8 @@ export default function CardProduct() {
       ))}
       
 
-      {/* <div className="aboutUs-card-container">
-        {cards.map((member, index) => (
-          <div className="aboutUs-card" key={index}>
-            <img src={addtocart} alt={member.name} />
-            <h3>{member.name}</h3>
-            <p>{member.description}</p>
-          </div>
-        ))}
-      </div> */}
-      {/* Part 5: Team section */}
-      {/* <div className="aboutUs-section aboutUs-team">
-        <h2>Our Team</h2>
-        <p>Meet the talented individuals behind our success:</p> */}
-
-      {/* <div className="aboutUs-card-container">
-          <div className="aboutUs-card">
-            <img src={khaled} alt="Team member 1" />
-            <h3>Team member 1</h3>
-            <p>Description of team member 1</p>
-          </div>
-          <div className="aboutUs-card">
-            <img src={khaled} alt="Team member 2" />
-            <h3>Team member 2</h3>
-            <p>Description of team member 2</p>
-          </div>
-          <div className="aboutUs-card">
-            <img src={khaled} alt="Team member 3" />
-            <h3>Team member 3</h3>
-            <p>Description of team member 3</p>
-          </div>
-        </div> */}
+     
     </div>
-    // </div>
+    
   );
 }

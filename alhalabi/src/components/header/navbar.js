@@ -18,6 +18,11 @@ function Navbar() {
   const toggleMobileNav = () => {
     setIsMobileNav(!isMobileNav);
   };
+  const cart = useContext(CartContext);
+  const[show,setshow]=useState(false);
+  const handleClose=() =>setshow(false);
+  const handleShow=() =>setshow(true);
+
   return (
     <nav  className={`navbar ${isMobileNav ? "mobile-nav" : ""}`}>
       <ul className="start">
@@ -64,12 +69,12 @@ function Navbar() {
           </Link>
         </li>
         <li>
-          <Link>
+          <Link to="/order">
+            <button show={show} onHide={handleClose}>
             <img src={order} alt="order" />
+            </button>
           </Link>
-          <Link>
-            <img src={order} alt="order" />
-          </Link>
+          
         </li>
         <li>
           <Link to="/signin">
