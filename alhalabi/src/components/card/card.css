@@ -1,7 +1,8 @@
 
-.cardAction{
+.card-contain{
     display: flex;
     justify-content: flex-end;
+    gap: 30px;
 }
 .imageCard{
     display: flex;

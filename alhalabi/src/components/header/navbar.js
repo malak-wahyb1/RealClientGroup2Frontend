@@ -14,6 +14,7 @@ import FormDialog from "../suggestProduct/suggest";
 function Navbar() {
   const [isMobileNav, setIsMobileNav] = useState(false);
 
+
   const toggleMobileNav = () => {
     setIsMobileNav(!isMobileNav);
   };
@@ -95,6 +96,7 @@ function Navbar() {
         </li>
       </ul>
     </nav>
+
   );
 }
 export default Navbar;

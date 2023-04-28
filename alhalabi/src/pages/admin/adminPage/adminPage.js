@@ -34,7 +34,18 @@ function AdminPage() {
 
   return (
     <section>
+     
       <h1>Admin</h1>
+      <FormComponent
+  inputFields={[
+    { name: "userName", label: "User Name", type: "text" },
+    { name: "email", label: "Email", type: "email" },
+    { name: "FirstName", label: "FullName", type: "email" },
+
+  ]}
+  title="Admin"
+/>
+
       <section className="admin-cards">
         {Admin.map((admin) => {
           return (
@@ -60,7 +71,9 @@ function AdminPage() {
             </div>
           );
         })}
+    
       </section>
+   
     </section>
   );
 }
