@@ -67,7 +67,7 @@ export default function LoginComponent() {
             <img src={logo} alt="logo" style={{ width: 150, height: 150 ,marginTop:35,marginLeft:5}} />
         
             </Avatar>
-            <Typography component="h1" variant="h4">
+            <Typography component="h1" variant="h4" >
               Log In
             </Typography>
             <Box

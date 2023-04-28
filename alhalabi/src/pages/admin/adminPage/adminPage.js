@@ -3,6 +3,7 @@ import axios from "axios";
 import PersonIcon from "@mui/icons-material/Person";
 import "./adminPage.css";
 import CustomizedMenus from "../../../components/admin/role";
+import FormComponent from "../../../components/admin/addForm/addFom";
 
 function AdminPage() {
  
