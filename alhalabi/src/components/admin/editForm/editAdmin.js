@@ -73,10 +73,12 @@ function EditAdmin(props, onEditAdmin) {
         
           sx={{
             color: "#0097B2",
+            
           
           }}
         >
-          <Edit />
+          <Edit sx={{color:"white"}}/> 
+          Edit
         </Button>
 
         <Dialog

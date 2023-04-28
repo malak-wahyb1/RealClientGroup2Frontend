@@ -18,6 +18,8 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import  useAuth  from "../context/useAuth";
+import { useCookies } from "react-cookie";
 function Copyright(props) {
   return (
     <Typography
@@ -37,19 +39,26 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignIn() {
+  const { setAuth } = useAuth();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [cookies, setCookie] = useCookies(["name"]);
+
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${process.env.REACT_APP_URL}/customer/login`, {
+      const response = await axios.post(`http://localhost:4000/customer/login`, {
         email,
         password,
       });
       console.log(response.data);
       toast.success("logIn successful");
       navigate("/");
+      const token = response?.data?.token;
+      setCookie("token", response.data.token);
+      setAuth({ email, password, token });
+      localStorage.setItem("token", "true");
     } catch (error) {
       console.log(error);
       toast.error("Error SignIn, Please Try Again ");

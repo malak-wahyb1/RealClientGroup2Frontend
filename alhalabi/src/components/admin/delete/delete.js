@@ -36,11 +36,12 @@ function DeleteComponent(props) {
        
         onClick={handleClickOpen}
         sx={{
-         width:"1px",
+      
           color: "#0097B2",
         }}
       >
-        {<Delete />}
+        {<Delete  sx={{color:"white"}} />}
+       Delete
       </Button>
 
       <Dialog
