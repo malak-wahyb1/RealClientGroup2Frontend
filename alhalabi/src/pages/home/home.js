@@ -3,6 +3,7 @@ import Categories from "./category.png";
 import { Link } from "react-router-dom";
 import AllCategories from "../../components/category/allCategory";
 import CardProduct from "../../components/card/card";
+import Profile from "../../components/User/profiel";
 
 function Home() {
   return (
@@ -30,6 +31,7 @@ function Home() {
          <CardProduct/>
 
         </section>
+      
       </section>
     </div>
   );
