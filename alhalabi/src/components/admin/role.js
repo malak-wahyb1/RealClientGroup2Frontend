@@ -3,12 +3,14 @@ import { styled, alpha } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import EditIcon from '@mui/icons-material/Edit';
+
 import Divider from '@mui/material/Divider';
 import ArchiveIcon from '@mui/icons-material/Archive';
 import FileCopyIcon from '@mui/icons-material/FileCopy';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import EditAdmin from './editForm/editAdmin';
+import DeleteComponent from './delete/delete';
 
 const StyledMenu = styled((props) => (
   <Menu
@@ -60,6 +62,12 @@ export default function CustomizedMenus(props) {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const handleEdit =()=>{
+    return(<EditAdmin/>)
+  }
+  const handleDelete =()=>{
+    return(<DeleteComponent/>)
+  }
 
   return (
     <div>
@@ -72,9 +80,10 @@ export default function CustomizedMenus(props) {
         disableElevation
         onClick={handleClick}
         endIcon={<KeyboardArrowDownIcon />}
-        sx={{bgcolor:"#0097B2",marginTop:"1pc"}}
+        sx={{bgcolor:"#0097B2"}}
       >
-        {props.Role}
+        
+        Action
       </Button>
       <StyledMenu
         id="demo-customized-menu"
@@ -85,10 +94,18 @@ export default function CustomizedMenus(props) {
         open={open}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose} disableRipple>
-          <EditIcon />
-          Edit
+        <MenuItem onClick={handleEdit} disableRipple>
+       
+           <EditAdmin/>
+           
+          
         </MenuItem>
+        <MenuItem onClick={handleDelete} disableRipple>
+       
+       <DeleteComponent/>
+     
+     
+   </MenuItem>
         <MenuItem onClick={handleClose} disableRipple>
           <FileCopyIcon />
           Duplicate

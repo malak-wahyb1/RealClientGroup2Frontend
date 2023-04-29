@@ -9,6 +9,9 @@ import AssignmentIcon from "@mui/icons-material/Assignment";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import ContactPhoneIcon from "@mui/icons-material/ContactPhone";
 import FormDialog from "../suggestProduct/suggest";
+import FormComponent from "../admin/addForm/addFom";
+import AdminProfile from "../admin/adminProfile/adminProfile";
+
 
 
 function Navbar() {
@@ -77,18 +80,19 @@ function Navbar() {
           
         </li>
         <li>
-          <Link to="/signin">
+          <Link to="/profile">
             <AccountCircleOutlinedIcon
               style={{ color: "#0097B2", width: "30", height: "30" }}
             />
           </Link>
-          <Link to="/signin">
+          <Link to="/profile">
             <AccountCircleOutlinedIcon
               style={{ color: "#0097B2", width: "30", height: "30" }}
             />
           </Link>
         </li>
         <li>
+     
           <div
             id="mobile-menu"
             className={`menu-toggle ${isMobileNav ? "is-active" : ""}`}
