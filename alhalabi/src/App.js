@@ -13,6 +13,7 @@ import AdminPage from "./pages/admin/adminPage/adminPage";
 import Category from "./pages/admin/category/category";
 
 import RequireAuth from "./components/context/RequireAuth";
+import Profile from "./components/User/profiel";
 // import Footer from "./components/footer/footer";
 function App() {
   return (
@@ -28,14 +29,14 @@ function App() {
         </Route>
         <Route element={<RequireAuth/>}>
        
-        
-        <Route path="/about" element={<About />} />
+        <Route path="/profile" element={<Profile/>} />
           <Route path="/order" element={<Order />} />
         </Route>
         
         <Route path="/" element={<Visiter />}>
        
         <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
         </Route>
         <Route path="/signIn" element={<SignIn />} />
         <Route path="/signUp" element={<SignUp />} />
