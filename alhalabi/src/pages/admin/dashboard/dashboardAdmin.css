@@ -1,16 +1,8 @@
-.first-chart{
-    display:flex;
-    flex-direction:row;
-justify-content: space-around;
 
-
-}
-.adminDashboard{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    
-}
-.center{
-  margin-left: 100px;
+.charts-dash{
+   display: flex; 
+   flex-wrap: wrap;
+   justify-content: space-around;
+   width: 97%;
+   margin:3.5pc auto;
 }

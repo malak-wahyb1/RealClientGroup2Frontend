@@ -11,7 +11,7 @@ function AdminPage() {
   useEffect(() => {
     console.log("http://localhost:4000");
     axios
-      .get(`http://localhost:4000/auth`)
+      .get(`${process.env.REACT_APP_URL}/auth`)
       .then((response) => {
         console.log(response.data.response);
         // add an `id` property to each row object
