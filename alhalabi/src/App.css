@@ -1,5 +1,6 @@
 .adminContainer {
   display: flex;
+  background-color: #eef1f5;
 }
 .visitor-main {
   width: calc(100vw - 200px);

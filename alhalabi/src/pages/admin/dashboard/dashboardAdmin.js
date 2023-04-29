@@ -1,22 +1,20 @@
 import BarChart from "../../../components/admin/chart/BarChart";
-import PieChart from "../../../components/admin/chart/PieChart";
-import LineChart from "../../../components/admin/chart/lineChart";
-import Chart from "../../../components/admin/chart/Char";
-import "./dashboardAdmin.css"
+import DonateCharts from "../../../components/admin/chart/DonateChart";
+import LineCharts from "../../../components/admin/chart/LineCharts";
 
-                                                                                                                                                                                                                                                                                                                                                                
-function Dashboard(){
-    return(
-        <section className="adminDashboard">
-<h1>Dashboard</h1>
-<div className="first-chart">
-<LineChart/>
-<BarChart/>
-<PieChart/>
-</div>
-<Chart />
-</section>
+import "./dashboardAdmin.css";
 
-    )
+function Dashboard() {
+  return (
+    <section className="adminDashboard">
+      <h1>Dashboard</h1>
+   
+        <BarChart />
+        <section className="charts-dash">
+         <DonateCharts />
+          <LineCharts/>
+        </section>
+    </section>
+  );
 }
 export default Dashboard;
