@@ -17,21 +17,46 @@ export default function Table(props) {
         <GridToolbarExport />
         <GridToolbarFilterButton />
         <GridToolbarDensitySelector />
+       
+      </GridToolbarContainer>
+    );
+  }
+  function CustomToolbar() {
+    return (
+      <GridToolbarContainer
+      >
+        
+        <GridToolbarExport />
+        <GridToolbarFilterButton />
+        <GridToolbarDensitySelector />
         <Button
-          sx={{
-            bgcolor: "#e2eaf2",
-            transform: "translateX(52pc)",
-            color: "#06023B",
+        sx={{
+          position:"absolute",
+          top:0,
+          right:0,
+          bgcolor:"#e2eaf2",
+        color: "third",
+        "&:hover": {
+          bgcolor: "accent",
+          color: "#ffffff",
+        },
+        }}
+          variant="contained"
+          color="primary"
+          startIcon={<GridAddIcon />}
+          onClick={() => {
+            // Add your button click functionality here
           }}
         >
-          <GridAddIcon />
-          Add Admin
+          Add Category
         </Button>
       </GridToolbarContainer>
     );
   }
+  
   return (
     <div style={{ height: 700, width: "80%" }} className="Table">
+       
       <DataGrid
         columns={props.columns}
         rows={props.rows}
