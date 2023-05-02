@@ -21,6 +21,8 @@ export default function Table(props) {
       </GridToolbarContainer>
     );
   }
+
+  
   function CustomToolbar() {
     return (
       <GridToolbarContainer
