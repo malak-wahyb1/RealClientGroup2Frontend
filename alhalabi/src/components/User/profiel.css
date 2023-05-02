@@ -1,22 +1,19 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Bree+Serif&display=swap");
 
-/* * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-} */
 
 .profile{
     width:80%;
   margin:auto ;
   margin-top: 8em;
+
 }
 .profile-header {
   background: #fff;
   /* width: 100%; */
   display: flex;
   height: 190px;
+  
   position: relative;
   box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.2);
  
@@ -47,6 +44,8 @@
   flex-direction: column;
   justify-content: center;
   padding-top: 60px;
+  padding: 0;
+  margin: 0;
 }
 
 .profile-nav-info h3 {
@@ -60,6 +59,7 @@
 .profile-nav-info .info {
   display: flex;
   font-weight: bold;
+  align-items: center;
   color: #777;
   font-size: 1.5em;
 }

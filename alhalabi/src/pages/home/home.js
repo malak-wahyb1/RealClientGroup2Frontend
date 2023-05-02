@@ -44,14 +44,7 @@ function Home() {
       </section>
       <section>
         <Offer />
-        <div className="feedback">
-          {" "}
-          <div className="stars">
-            {" "}
-            <label htmlFor="rating">Rating:</label>{" "}
-            <Rating name="rating" max={5} required sx={{width:"100px",height:"100px"}}/>{" "}
-          </div>{" "}
-        </div>
+       
       </section>
     </div>
   );

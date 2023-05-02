@@ -39,7 +39,9 @@ export default function NativeSelectDemo() {
           <option value={30}>Electronic</option>
         </NativeSelect>
       </FormControl>
+      <section className='subCategory'>
       <SubCategory subCategory={subCategoryProps} />
+      </section>
     </Box>
   );
 }

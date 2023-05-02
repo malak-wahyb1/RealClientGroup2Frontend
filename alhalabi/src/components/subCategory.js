@@ -1,7 +1,7 @@
 function SubCategory(props){
     return(
    
-<section style={{display:"flex"}}>
+<section className="subCategory">
    { props.subCategory.map((sub)=>{
         console.log(sub)
         return(

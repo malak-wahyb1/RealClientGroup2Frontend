@@ -1,3 +1,8 @@
+:root {
+  --primary: #ffffff;
+  --secondary: #06023b;
+  --accent: #0097b2;
+  --third: #e2eaf2;
 
 }
 html {

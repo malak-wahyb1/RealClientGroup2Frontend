@@ -9,6 +9,10 @@
   height: 95vh;
   font-family: "Inter", sans-serif;
 }
+.visitor-main h1{
+  margin: 2pc;
+  font-size: 25px;
+}
 
 .adminProfile-main {
  position: fixed;
@@ -24,8 +28,12 @@ margin-top: 1%;
   }
 }
 .Table {
-  margin-top: 4pc;
-  margin-left: 7pc;
+ margin:6pc auto;
+  border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    background-color: #fff;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+ 
 }
 .css-128fb87-MuiDataGrid-toolbarContainer {
   background-color: var(--accent);
