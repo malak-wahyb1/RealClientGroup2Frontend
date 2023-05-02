@@ -2,6 +2,9 @@ import { Outlet } from "react-router-dom";
 import Navbar from "../components/header/navbar";
 import Footer from "../components/footer/footer";
 function Visiter() {
+
+
+
   return (
     <div className="About">
       <Navbar />
@@ -10,5 +13,6 @@ function Visiter() {
     </div>
   );
 }
+
 
 export default Visiter;

@@ -49,7 +49,7 @@ export default function SignIn() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`http://localhost:4000/customer/login`, {
+      const response = await axios.post(`${process.env.REACT_APP_URL}/customer/login`, {
         email,
         password,
       });

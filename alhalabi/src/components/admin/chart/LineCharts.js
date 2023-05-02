@@ -4,7 +4,7 @@ function LineCharts() {
   return (
     <div className="card_charts">
       <h2>Number Of Customer By Month </h2>
-      <div style={{ maxWidth: "650px" }}>
+      <div style={{ maxWidth: "750px" }}>
         <Bar
           data={{
             // Name of the variables on x-axies for each bar
@@ -25,6 +25,7 @@ function LineCharts() {
           }}
           // Height of graph
           height={400}
+          style={{marginLeft:"4pc"}}
           options={{
             maintainAspectRatio: false,
             scales: {

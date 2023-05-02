@@ -9,11 +9,7 @@
   height: 95vh;
   font-family: "Inter", sans-serif;
 }
-.visitor-main h1 {
-margin-left: 3%;
-  color: var(--secondary);
-  font-size: 29px;
-}
+
 .adminProfile-main {
  position: fixed;
  right: 0;
@@ -51,4 +47,7 @@ margin-top: 1%;
 }
 .css-128fb87-MuiDataGrid-toolbarContainer button:last-child:hover{
   color:var(--primary)
+}
+.website{
+  margin:4% auto;
 }
