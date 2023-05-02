@@ -3,9 +3,9 @@ import Navbar from "../components/header/navbar";
 function Visiter() {
     return (
       <div className="About">
+
         <Navbar/>
 <Outlet/>
-
       </div>
     );
   }

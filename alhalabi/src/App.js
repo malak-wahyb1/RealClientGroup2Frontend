@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./pages/home/home";
 import About from "./pages/about/about";
 import Order from "./pages/order";
+import Contact from "./pages/contact/contact";
 import Visiter from "./routes/visiter";
 import Admin from "./routes/admin";
 import SignUp from "./components/auth/signUp";
@@ -25,7 +26,8 @@ function App() {
         <Route path="/" element={<Visiter />}>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/order" element={<Order />} />
+          <Route path="/order" element={<Order />}/>
+          <Route path="/contact" element={<Contact />} />
         </Route>
         <Route path="/signIn" element={<SignIn />} />
         <Route path="/signUp" element={<SignUp />} />
