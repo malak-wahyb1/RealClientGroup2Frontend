@@ -4,7 +4,9 @@ function Visiter() {
     return (
       <div className="About">
         <Navbar/>
+        <section className="website">
 <Outlet/>
+</section>
 
       </div>
     );

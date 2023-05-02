@@ -9,20 +9,15 @@ import AssignmentIcon from "@mui/icons-material/Assignment";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import ContactPhoneIcon from "@mui/icons-material/ContactPhone";
 import FormDialog from "../suggestProduct/suggest";
-import FormComponent from "../admin/addForm/addFom";
-import AdminProfile from "../admin/adminProfile/adminProfile";
-
-
 
 function Navbar() {
   const [isMobileNav, setIsMobileNav] = useState(false);
-
 
   const toggleMobileNav = () => {
     setIsMobileNav(!isMobileNav);
   };
   return (
-    <nav  className={`navbar ${isMobileNav ? "mobile-nav" : ""}`}>
+    <nav className={`navbar ${isMobileNav ? "mobile-nav" : ""}`}>
       <ul className="start">
         <li>
           <Link to="/" className="logo">
@@ -55,8 +50,10 @@ function Navbar() {
           </Link>
         </li>
         <li>
-          <Link ><FormDialog/></Link>
-          <Link >
+          <Link>
+            <FormDialog />
+          </Link>
+          <Link>
             <AssignmentIcon />
           </Link>
         </li>
@@ -87,7 +84,6 @@ function Navbar() {
           </Link>
         </li>
         <li>
-     
           <div
             id="mobile-menu"
             className={`menu-toggle ${isMobileNav ? "is-active" : ""}`}
@@ -100,7 +96,6 @@ function Navbar() {
         </li>
       </ul>
     </nav>
-
   );
 }
 export default Navbar;

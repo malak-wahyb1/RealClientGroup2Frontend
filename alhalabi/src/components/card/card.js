@@ -1,13 +1,11 @@
 import * as React from "react";
-import Card from "@mui/material/Card";
 import "./card.css";
-import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
-import Typography from "@mui/material/Typography";
+
 import addtocart from "./addtocart.png";
-import product from "./product.avif";
+import product from "./product.png";
 // import faker from "faker";
 import { useState } from "react";
+import { Button } from "@mui/material";
 
 export default function CardProduct() {
   const cards = [
@@ -32,43 +30,74 @@ export default function CardProduct() {
       image: product,
       icon:addtocart
     },
+    {
+      
+      name: "capp",
+      price: "900.000LL",
+      image: product,
+      icon:addtocart
+    },
+    {
+      
+      name: "capp",
+      price: "900.000LL",
+      image: product,
+      icon:addtocart
+    },
+    {
+      
+      name: "capp",
+      price: "900.000LL",
+      image: product,
+      icon:addtocart
+    },
+    {
+      
+      name: "capp",
+      price: "900.000LL",
+      image: product,
+      icon:addtocart
+    },
+    {
+      
+      name: "capp",
+      price: "900.000LL",
+      image: product,
+      icon:addtocart
+    },
+    {
+      
+      name: "capp",
+      price: "900.000LL",
+      image: product,
+      icon:addtocart
+    },
   ];
-  // const productsArray= [...Array(20)].map(()=>({
-  //   id:faker.datatype.uuid(),
-  //   name:faker.commerce.productName(),
-  //   price:faker.commerce.price(),
-  //   image:faker.random.image(),
-  // })
-  // )
+ 
 
   return (
     <div className="card-contain">
       {cards.map((some,index)=>(
-        <Card sx={{ maxWidth: 270, maxHeight: 380 }}>
-        <section className="imageCard" key={index}>
-          <img
-            src={some.image}
-            alt="product_image"
-            width={150}
-            className="card-image"
-          />
-        </section>
-
-        <CardContent>
-          <Typography variant="body2" color="text.secondary">
-            <h1>{some.name}</h1>
-            <p>{some.price}</p>
-          </Typography>
-        </CardContent>
-        <section className="cardAction">
-          <CardActions>
-            <button>
-            <img src={some.icon} alt="Addtocart" className="addtocart"
-            /></button>
-            
-          </CardActions>
-        </section>
-      </Card>
+       <div className="containerProduct">
+       <div className="cardProduct">
+         <div className="imgBx">
+           <img src={product} alt=""/>
+         </div>
+         <div className="contentBx">
+           <h2>Nike Shoes</h2>
+           <div className="size">
+             <h3>Weight :</h3>
+             <span>7</span>
+           
+           </div>
+           <div className="color">
+             <h3>Price :</h3>
+             <span></span>
+           </div>
+           <Button sx={{bgcolor:"hsl(244, 93%, 12%)",color:"white",'&:hover':{color:"hsl(244, 93%, 12%)"}}}>Add To Cart</Button>
+         </div>
+       </div>
+     </div>
       ))}
       
 
