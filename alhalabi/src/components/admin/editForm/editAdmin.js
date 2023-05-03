@@ -6,7 +6,7 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 // import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-import AddIcon from "@mui/icons-material/Add";
+import EditIcon from "@mui/icons-material/Edit";
 import "./editForm.css";
 import { Sheet } from "@mui/joy";
 export default function EditAdmin(props) {
@@ -30,7 +30,7 @@ export default function EditAdmin(props) {
           boxShadow: "0px 1px 7px rgba(0, 0, 0, 0.5)",
         }}
       >
-        <AddIcon
+        <EditIcon
           sx={{
             color: "white",
             width: "30px",
@@ -42,9 +42,7 @@ export default function EditAdmin(props) {
         />
       </Sheet>
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle sx={{ color: "#06023B" }}>
-          Add New {props.title}
-        </DialogTitle>
+        <DialogTitle sx={{ color: "#06023B" }}>Edit {props.title}</DialogTitle>
         <DialogContent>
           {props.inputFields.map((input, index) => (
             <TextField
