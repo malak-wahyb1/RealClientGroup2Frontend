@@ -7,9 +7,11 @@ function Visiter() {
 
   return (
     <div className="About">
+
       <Navbar />
       <Outlet />
       <Footer />
+
     </div>
   );
 }

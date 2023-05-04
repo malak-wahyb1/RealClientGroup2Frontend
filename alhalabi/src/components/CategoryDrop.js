@@ -14,6 +14,7 @@ export default function NativeSelectDemo() {
   };
 
   return (
+    <>
     <Box sx={{ minWidth: 120, maxWidth: 200 }}>
       <FormControl fullWidth>
         <InputLabel variant="standard" htmlFor="uncontrolled-native" sx={{ color: "#0097B2" }}>
@@ -39,9 +40,11 @@ export default function NativeSelectDemo() {
           <option value={30}>Electronic</option>
         </NativeSelect>
       </FormControl>
-      <section className='subCategory'>
+     
+    </Box>
+    <section className='subCategory'>
       <SubCategory subCategory={subCategoryProps} />
       </section>
-    </Box>
+    </>
   );
 }
