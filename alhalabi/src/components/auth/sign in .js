@@ -17,7 +17,9 @@ import img from "./login.png";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation } from "react-router-dom";
+import  useAuth  from "../context/useAuth";
+import { useCookies } from "react-cookie";
 function Copyright(props) {
   return (
     <Typography
@@ -37,8 +39,12 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignIn() {
+  const { setAuth } = useAuth();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [cookies, setCookie] = useCookies(["name"]);
+  const location = useLocation();
+  const { from } = location.state || { from: { pathname: "/" } };
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -49,7 +55,11 @@ export default function SignIn() {
       });
       console.log(response.data);
       toast.success("logIn successful");
-      navigate("/");
+      navigate(from);
+      const token = response?.data?.token;
+      setCookie("token", response.data.token);
+      setAuth({ email, password, token });
+      localStorage.setItem("token", "true");
     } catch (error) {
       console.log(error);
       toast.error("Error SignIn, Please Try Again ");
@@ -57,7 +67,7 @@ export default function SignIn() {
   };
 
   return (
-    <section className="center">
+    <section className="signIn">
       <section className="signIn-img">
         <img src={img} alt="" />
       </section>

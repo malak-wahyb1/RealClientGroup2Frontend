@@ -148,9 +148,9 @@ export default function AdminProfile() {
             onLeaveMenu={createHandleLeaveMenu(2)}
             menu={
               <Menu onClose={() => setMenuIndex(null)}>
-                <MenuItem {...itemProps}>Personal 1</MenuItem>
-                <MenuItem {...itemProps}>Personal 2</MenuItem>
-                <MenuItem {...itemProps}>Personal 3</MenuItem>
+                <MenuItem {...itemProps}>Your Profile</MenuItem>
+                <MenuItem {...itemProps}>Home Page</MenuItem>
+                <MenuItem {...itemProps}>Sign Out</MenuItem>
               </Menu>
             }
           >

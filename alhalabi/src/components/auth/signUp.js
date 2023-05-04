@@ -62,7 +62,7 @@ export default function SignUp() {
   };
 
   return (
-    <section className="center">
+    <section className="signIn">
       <section className="signIn-img">
         <img src={img} alt="" />
       </section>

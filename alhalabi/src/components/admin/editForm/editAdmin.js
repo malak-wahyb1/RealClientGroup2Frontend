@@ -32,6 +32,7 @@ export default function EditAdmin(props) {
       >
         <EditIcon
           sx={{
+
             color: "white",
             width: "30px",
             ":hover": {
@@ -64,5 +65,6 @@ export default function EditAdmin(props) {
         </DialogActions>
       </Dialog>
     </section>
+
   );
 }
