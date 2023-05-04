@@ -1,9 +1,9 @@
 import React from "react";
 import img from "../../images/imgContact.png";
 import "./contact.css";
-import { Input, Button } from "@mui/material";
+import { Input, Button, Rating } from "@mui/material";
 import { MdPlace, MdLocalPhone, MdEmail } from "react-icons/md";
-import { Rating } from "@mui/lab";
+// import { Rating } from "@mui/lab";
 
 export default function contact() {
   return (
