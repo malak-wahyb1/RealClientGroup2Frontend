@@ -1,6 +1,7 @@
 import * as React from "react";
 import "./card.css";
-
+import { useContext } from "react";
+import CartContext from "./productContext";
 import addtocart from "./addtocart.png";
 import product from "./product.png";
 // import faker from "faker";
@@ -8,131 +9,73 @@ import { useState } from "react";
 import { Button } from "@mui/material";
 
 export default function CardProduct() {
+  const { addToCart } = useContext(CartContext);
   const cards = [
     {
-      
+      id: "nescafe",
       name: "nescafe",
       price: "200.000LL",
       image: product,
-      icon:addtocart,
+      icon: addtocart,
     },
     {
-      
+      id: "batata",
       name: "batata",
       price: "600.000LL",
       image: product,
-      icon:addtocart,
+      icon: addtocart,
     },
     {
-      
+      id: "capp",
       name: "capp",
       price: "900.000LL",
       image: product,
-      icon:addtocart
-    },
-    {
-      
-      name: "capp",
-      price: "900.000LL",
-      image: product,
-      icon:addtocart
-    },
-    {
-      
-      name: "capp",
-      price: "900.000LL",
-      image: product,
-      icon:addtocart
-    },
-    {
-      
-      name: "capp",
-      price: "900.000LL",
-      image: product,
-      icon:addtocart
-    },
-    {
-      
-      name: "capp",
-      price: "900.000LL",
-      image: product,
-      icon:addtocart
-    },
-    {
-      
-      name: "capp",
-      price: "900.000LL",
-      image: product,
-      icon:addtocart
-    },
-    {
-      
-      name: "capp",
-      price: "900.000LL",
-      image: product,
-      icon:addtocart
+      icon: addtocart,
     },
   ];
- 
+
+  const [cart, setCart] = useState({});
+
+  const handleAddToCart = (id, quantity) => {
+    setCart((prevCart) => ({
+      ...prevCart,
+      [id]: (prevCart[id] || 0) + 1,
+    }));
+  
+  };
 
   return (
     <div className="card-contain">
-      {cards.map((some,index)=>(
-       <div className="containerProduct">
-       <div className="cardProduct">
-         <div className="imgBx">
-           <img src={product} alt=""/>
-         </div>
-         <div className="contentBx">
-           <h2>Nike Shoes</h2>
-           <div className="size">
-             <h3>Weight :</h3>
-             <span>7</span>
-           
-           </div>
-           <div className="color">
-             <h3>Price :</h3>
-             <span></span>
-           </div>
-           <Button sx={{bgcolor:"hsl(244, 93%, 12%)",color:"white",'&:hover':{color:"hsl(244, 93%, 12%)"}}}>Add To Cart</Button>
-         </div>
-       </div>
-     </div>
+      {cards.map((some, index) => (
+        <div className="containerProduct" key={some.id}>
+          <div className="cardProduct">
+            {cart[some.id] && <span className="quantity">{cart[some.id]}</span>}
+            <div className="imgBx">
+              <img src={some.image} alt="" />
+            </div>
+
+            <div className="contentBx">
+              <h2>{some.name}</h2>
+              <div className="size">
+                <h3>Weight :</h3>
+                <span>7</span>
+              </div>
+              <div className="color">
+                <h3>Price :</h3>
+                <span>{some.price}</span>
+              </div>
+              <Button
+  onClick={() => {
+    addToCart(some.id,some.name, some.price, some.image,cart[some.id] || 1);
+    handleAddToCart(some.id);
+  }}
+>
+  Add To Cart
+</Button>
+            </div>
+          </div>
+        </div>
       ))}
-      
-
-      {/* <div className="aboutUs-card-container">
-        {cards.map((member, index) => (
-          <div className="aboutUs-card" key={index}>
-            <img src={addtocart} alt={member.name} />
-            <h3>{member.name}</h3>
-            <p>{member.description}</p>
-          </div>
-        ))}
-      </div> */}
-      {/* Part 5: Team section */}
-      {/* <div className="aboutUs-section aboutUs-team">
-        <h2>Our Team</h2>
-        <p>Meet the talented individuals behind our success:</p> */}
-
-      {/* <div className="aboutUs-card-container">
-          <div className="aboutUs-card">
-            <img src={khaled} alt="Team member 1" />
-            <h3>Team member 1</h3>
-            <p>Description of team member 1</p>
-          </div>
-          <div className="aboutUs-card">
-            <img src={khaled} alt="Team member 2" />
-            <h3>Team member 2</h3>
-            <p>Description of team member 2</p>
-          </div>
-          <div className="aboutUs-card">
-            <img src={khaled} alt="Team member 3" />
-            <h3>Team member 3</h3>
-            <p>Description of team member 3</p>
-          </div>
-        </div> */}
     </div>
-    // </div>
   );
 }

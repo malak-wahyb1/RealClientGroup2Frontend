@@ -64,10 +64,10 @@ function Navbar() {
           </Link>
         </li>
         <li>
-          <Link>
+          <Link to='/checkout'>
             <img src={order} alt="order" />
           </Link>
-          <Link>
+          <Link to='/checkout'>
             <img src={order} alt="order" />
           </Link>
         </li>

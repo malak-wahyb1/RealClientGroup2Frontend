@@ -12,14 +12,15 @@ import LoginAdmin from "./pages/admin/login/login";
 import Dashboard from "./pages/admin/dashboard/dashboardAdmin";
 import AdminPage from "./pages/admin/adminPage/adminPage";
 import Category from "./pages/admin/category/category";
-
+import { CartProvider } from "./components/card/productContext";
 import RequireAuth from "./components/context/RequireAuth";
 import Profile from "./components/User/profiel";
+import Checkout from "./pages/checkout/checkout";
 // import Footer from "./components/footer/footer";
 function App() {
   return (
     <div className="App">
-     
+      <CartProvider>
       <Routes>
       
         <Route path="/dashboard/admin" element={<LoginAdmin />} />
@@ -27,6 +28,7 @@ function App() {
           <Route path="/dashboard/admin/dashboard" element={<Dashboard />} />
           <Route path="/dashboard/admin/adminPage" element={<AdminPage />} />
           <Route path="/dashboard/admin/category" element={<Category />} />
+          
         </Route>
 
         <Route path="/" element={<Visiter />}>
@@ -40,17 +42,20 @@ function App() {
         <Route path="/profile" element={<Profile/>} />
 
         </Route>
-        
+       
         <Route path="/" element={<Visiter />}>
        
         <Route path="/" element={<Home />} />
+        <Route path='/checkout' element={<Checkout/>}/>
         <Route path="/about" element={<About />} />
+
         </Route>
+      
         <Route path="/signIn" element={<SignIn />} />
         <Route path="/signUp" element={<SignUp />} />
         {/* <Route path="/dashboard/footer" element={<Footer />} /> */}
       </Routes>
-      
+      </CartProvider>
     </div>
   );
 }
