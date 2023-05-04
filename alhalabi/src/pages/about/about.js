@@ -32,22 +32,6 @@ function About() {
           referrerpolicy="no-referrer-when-downgrade"
         ></iframe>
       </div>
-      <div className="about-icons">
-        <a href="https://www.facebook.com" target="_blank" rel="noreferrer">
-          <FaFacebook />
-          {/* <p>AlHalabisupermarketfacebook.com</p> */}
-        </a>
-
-        <a href="https://www.instagram.com" target="_blank" rel="noreferrer">
-          <FaInstagram />
-          {/* <p>AlHalabisupermarketinstagram.com</p> */}
-        </a>
-
-        <a href="https://web.whatsapp.com/" target="_blank" rel="noreferrer">
-          <FaWhatsapp />
-          {/* <p>AlHalabisupermarketwhatsapp.com</p> */}
-        </a>
-      </div>
     </div>
   );
 }
