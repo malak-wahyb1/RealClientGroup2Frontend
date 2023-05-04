@@ -21,17 +21,19 @@ function Category(){
         });
     }, []);
     const columns = [
-      {field:"id"},
-        { field: "Name ", headerName: "Name", width: 250 },
-        { field: "image", headerName: "Image", width: 250 },
+      {field:"id",width: 412},
+        { field: "Name ", headerName: "Name", width: 450 },
+        { field: "image", headerName: "Image", width: 400 },
     
      
       ];
     
 return(
     <section>
-      <h1>Categories</h1>
+      <h1>Categories </h1>
+      
       <Table columns={columns} rows={Category} />
+      
     </section>
 )
 }
