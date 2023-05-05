@@ -12,6 +12,7 @@ import ReviewsIcon from '@mui/icons-material/Reviews';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
 import LinkIcon from '@mui/icons-material/Link';
 
+
 // Sidebar Data
 export const SidebarData = [
   {
@@ -30,7 +31,7 @@ export const SidebarData = [
     heading: "Categories",
   },
   {
-    path: "SubCategories",
+    path: "SubCategory",
     icon: AccountTreeIcon,
     heading: "SubCategories",
   },
@@ -56,17 +57,17 @@ export const SidebarData = [
     heading: "Offers",
   },
   {
-    path: "Payments",
+    path: "Payment",
     icon: PaymentsIcon,
     heading: "Payments",
   },
   {
-    path: "Reviews",
+    path: "Review",
     icon: ReviewsIcon,
     heading: "Reviews",
   },
   {
-    path: "Contact us",
+    path: "Contact",
     icon: ContactMailIcon,
     heading: "Contact us",
   },
