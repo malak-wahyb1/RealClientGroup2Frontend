@@ -32,6 +32,7 @@ function App() {
   return (
     <div className="App">
       <CartProvider>
+
       <Routes>
       
         <Route path="/dashboard/admin" element={<LoginAdmin />} />
@@ -51,23 +52,18 @@ function App() {
 
         </Route>
 
-        <Route path="/" element={<Visiter />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
 
-        <Route element={<RequireAuth/>}/>
-        <Route path='/checkout' element={<Checkout/>}/>
-       
-        <Route path="/profile" element={<Profile/>} />
-
-        </Route>
-       
-      
-        <Route path="/signIn" element={<SignIn />} />
-        <Route path="/signUp" element={<SignUp />} />
-      
-      </Routes>
+          <Route path="/" element={<Visiter />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route element={<RequireAuth />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/profile" element={<Profile />} />
+          </Route>
+          <Route path="/signIn" element={<SignIn />} />
+          <Route path="/signUp" element={<SignUp />} />
+        </Routes>
       </CartProvider>
     </div>
   );

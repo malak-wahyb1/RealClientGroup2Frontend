@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaEnvelope, FaPhone, FaHome } from "react-icons/fa";
 import LogoutIcon from '@mui/icons-material/Logout';
 import DataGridDemo from "./userTabel";
-import Navbar from "../header/navbar";
 import axios from "axios";
 
 const Profile = (props) => {
@@ -16,7 +15,7 @@ const Profile = (props) => {
     }catch(error){console.log(error
         );}}
   return (
-    <main><Navbar/>
+    <main>
     <div className="profile">
       <section>
         <header className="profile-header">
@@ -24,7 +23,7 @@ const Profile = (props) => {
             <img
               src="https://media.istockphoto.com/id/1337144146/vector/default-avatar-profile-icon-vector.jpg?s=612x612&w=0&k=20&c=BIbFwuv7FxTWvh5S3vB6bkT0Qv8Vn8N5Ffseq84ClGI="
               width="200"
-              alt="Profile Image"
+              alt="ProfileImage"
             />
           </div>
           <div className="profile-nav-info">

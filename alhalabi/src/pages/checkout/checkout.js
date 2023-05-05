@@ -1,61 +1,61 @@
 import { useContext } from "react";
 import cartContext from "../../components/card/productContext";
-import {
-  Add,
-  Email,
-  Home,
-  LocationCity,
-  Person,
-  Phone,
-  Remove,
-} from "@mui/icons-material";
+import { Add, Email, Home, LocationCity, Person, Phone, Remove } from "@mui/icons-material";
 import React, { useState } from "react";
 import "./checkout.css";
+import { Button } from "@mui/material";
+import TruckAnimation from "../../components/orderAnimation/orderAnimation";
+
 function Checkout() {
-  const { items } = useContext(cartContext);
+  const { items, updateQuantity } = useContext(cartContext);
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [fullName, setFullName] = useState("");
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
+  let totalPrice = 0;
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
   };
-
   const handlePhoneChange = (event) => {
     setPhone(event.target.value);
   };
-
   const handleFullNameChange = (event) => {
     setFullName(event.target.value);
   };
-
   const handleAddressChange = (event) => {
     setAddress(event.target.value);
   };
-
   const handleCityChange = (event) => {
     setCity(event.target.value);
   };
-
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Handle form submission here
+    items.forEach((item) => updateQuantity(item.id, 0));
+    localStorage.removeItem("item");
   };
 
+  const handleAdd = (id) => {
+    const item = items.find((item) => item.id === id);
+    if (item) {
+      const newQuantity = item.quantity + 1;
+      updateQuantity(id, newQuantity);
+    }
+  };
+  if (items.length > 0) {
+  return (
+    <div className="global-container">
+      <header className="principal">
+        <h1>Checkout</h1>
+      </header>
+      <main className="principal">
+        <div className="cart-preview">
+          {items.map((item) => {
+            const itemPrice = item.price * item.quantity;
+            totalPrice += itemPrice;
 
-  if (items.length > 0){
-
-
-    return (
-      <div className="global-container">
-        <header className="principal">
-          <h1>Checkout</h1>
-        </header>
-        <main className="principal">
-          <div className="cart-preview">
-            {items.map((item) => (
+            return (
               <div className="cart-item">
                 <img src={item.image} alt="product" />
                 <div>
@@ -67,29 +67,34 @@ function Checkout() {
                   </div>
                   <div className="qty-selector">
                     <span className="material-icons">
-                      <Remove />
+                      <Remove
+                        onClick={() =>
+                          updateQuantity(item.id, item.quantity - 1)
+                        }
+                      />
                     </span>
                     <span className="qty">{item.quantity}</span>
                     <span className="material-icons">
-                      <Add />
+                      <Add onClick={() => handleAdd(item.id)} />
                     </span>
                   </div>
                 </div>
+                <div className="item-total">{itemPrice}</div>
               </div>
-            ))}
-
-            <div className="shipping">
-              <span>Shipping</span>
-              <span>$19</span>
-            </div>
-            <div className="total">
-              <span>Total</span>
-              <span>$148.98</span>
-            </div>
+            );
+          })}
+          <div className="shipping">
+            <span>Shipping</span>
+            <span>$19</span>
           </div>
-          <form onSubmit={handleSubmit} id="checkout-form">
-            <section>
-              <h3>Contact information</h3>
+          <div className="total">
+            <span>Total</span>
+            <span>{totalPrice + 19}</span>
+          </div>
+        </div>
+        <form onSubmit={handleSubmit} id="checkout-form">
+          <section>
+            <h3>Contact information</h3>
               <div className="form-group">
                 <label htmlFor="email">E-mail</label>
                 <div>
@@ -102,6 +107,7 @@ function Checkout() {
                     placeholder="Enter your email..."
                     value={email}
                     onChange={handleEmailChange}
+                    required
                   />
                 </div>
               </div>
@@ -117,6 +123,7 @@ function Checkout() {
                     placeholder="Enter your phone number..."
                     value={phone}
                     onChange={handlePhoneChange}
+                    required
                   />
                 </div>
               </div>
@@ -135,6 +142,7 @@ function Checkout() {
                     placeholder="Enter your full name..."
                     value={fullName}
                     onChange={handleFullNameChange}
+                    required
                   />
                 </div>
               </div>
@@ -150,6 +158,7 @@ function Checkout() {
                     placeholder="Enter your address..."
                     value={address}
                     onChange={handleAddressChange}
+                    required
                   />
                 </div>
               </div>
@@ -165,6 +174,7 @@ function Checkout() {
                     placeholder="Enter your city..."
                     value={city}
                     onChange={handleCityChange}
+                    required
                   />
                 </div>
               </div>
@@ -174,6 +184,15 @@ function Checkout() {
         </main>
       </div>
     );
+  }else if(items.length===0||items.length<0){
+    return(
+      <section className="no-order">
+        <h1>No Order Yet</h1>
+        <h2>We Are Ready To Packge Your Order </h2>
+     
+    <TruckAnimation/>
+      </section>
+    )
   }
 }
 export default Checkout;
