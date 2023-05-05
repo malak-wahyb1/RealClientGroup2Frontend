@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Table from "../../../components/admin/tables/table";
 import DeleteComponent from "../../../components/admin/delete/delete";
-function Category(){
-    const [Category, setCategory] = useState([]);
+function SubCategory(){
+    const [SubCategory, setSubCategory] = useState([]);
     useEffect(() => {
       console.log(process.env.REACT_APP_URL);
       axios
-        .get(`${process.env.REACT_APP_URL}category`)
+        .get(`${process.env.REACT_APP_URL}subCategory`)
         .then((response) => {
           console.log(response);
           // add an `id` property to each row object
@@ -15,7 +15,7 @@ function Category(){
             ...row,
             id: index + 1,
           }));
-          setCategory(data);
+          setSubCategory(data);
         })
         .catch((error) => {
           console.log(error);
@@ -24,7 +24,7 @@ function Category(){
     const columns = [
       {field:"id",width: 312},
         { field: "Name ", headerName: "Name", width: 450 },
-        { field: "image", headerName: "Image", width: 300 },
+        { field: "category", headerName: "Category", width: 300 },
     
         {
           field: "delete",
@@ -39,11 +39,11 @@ function Category(){
     
 return(
     <section>
-      <h1>Categories </h1>
+      <h1>SubCategories </h1>
       
-      <Table columns={columns} rows={Category} />
+      <Table columns={columns} rows={SubCategory} />
       
     </section>
 )
 }
-export default Category;
+export default SubCategory;
