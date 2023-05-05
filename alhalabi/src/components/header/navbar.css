@@ -6,7 +6,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 1pc auto;
+  margin: 2pc auto;
   font-family: sans-serif;
 }
 
@@ -98,6 +98,7 @@ nav svg.search {
   margin-right: 8px;
   padding: 8px;
 }
+
 .end .avatar {
   margin: 0 6px;
 }
@@ -168,6 +169,7 @@ nav li a:nth-child(2) {
   }
   
   .menu-toggle .bar {
+    
     width: 25px;
     height: 3px;
     background-color: var(--accent);

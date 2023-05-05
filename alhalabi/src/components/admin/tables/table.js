@@ -3,6 +3,7 @@ import { useDemoData } from "@mui/x-data-grid-generator";
 import {
   DataGrid,
   GridAddIcon,
+  GridToolbar,
   GridToolbarContainer,
   GridToolbarDensitySelector,
   GridToolbarExport,
@@ -17,27 +18,22 @@ export default function Table(props) {
         <GridToolbarExport />
         <GridToolbarFilterButton />
         <GridToolbarDensitySelector />
-        <Button
-          sx={{
-            bgcolor: "#e2eaf2",
-            transform: "translateX(52pc)",
-            color: "#06023B",
-          }}
-        >
-          <GridAddIcon />
-          Add Admin
-        </Button>
+       
       </GridToolbarContainer>
     );
   }
+
+ 
+  
   return (
     <div style={{ height: 700, width: "80%" }} className="Table">
+       
       <DataGrid
         columns={props.columns}
         rows={props.rows}
         getRowId={(row) => row._id}
         slots={{
-          toolbar: CustomToolbar,
+          toolbar:GridToolbar,
         }}
         sx={{
           color: "#06023B",

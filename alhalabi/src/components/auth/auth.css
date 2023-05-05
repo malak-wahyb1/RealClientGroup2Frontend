@@ -1,4 +1,4 @@
-.center{
+.signIn{
 /* margin: auto; */
 display: flex;
 align-items: center;
@@ -13,3 +13,14 @@ width: 50%;
 .signup_form{
     justify-self: flex-end;
 }
+@media only screen and (max-width: 1330px) {
+ 
+    .signIn-img {
+     display:none;
+     
+    }
+    .signup_form {
+      
+      margin-top: 30px;
+    }
+  }

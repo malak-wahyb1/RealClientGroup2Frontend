@@ -10,7 +10,6 @@ import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined
 import ContactPhoneIcon from "@mui/icons-material/ContactPhone";
 import FormDialog from "../suggestProduct/suggest";
 
-
 function Navbar() {
   const [isMobileNav, setIsMobileNav] = useState(false);
 
@@ -18,7 +17,7 @@ function Navbar() {
     setIsMobileNav(!isMobileNav);
   };
   return (
-    <nav  className={`navbar ${isMobileNav ? "mobile-nav" : ""}`}>
+    <nav className={`navbar ${isMobileNav ? "mobile-nav" : ""}`}>
       <ul className="start">
         <li>
           <Link to="/" className="logo">
@@ -51,8 +50,10 @@ function Navbar() {
           </Link>
         </li>
         <li>
-          <Link ><FormDialog/></Link>
-          <Link >
+          <Link>
+            <FormDialog />
+          </Link>
+          <Link>
             <AssignmentIcon />
           </Link>
         </li>
@@ -63,20 +64,20 @@ function Navbar() {
           </Link>
         </li>
         <li>
-          <Link>
+          <Link to='/checkout'>
             <img src={order} alt="order" />
           </Link>
-          <Link>
+          <Link to='/checkout'>
             <img src={order} alt="order" />
           </Link>
         </li>
         <li>
-          <Link to="/signin">
+          <Link to="/profile">
             <AccountCircleOutlinedIcon
               style={{ color: "#0097B2", width: "30", height: "30" }}
             />
           </Link>
-          <Link to="/signin">
+          <Link to="/profile">
             <AccountCircleOutlinedIcon
               style={{ color: "#0097B2", width: "30", height: "30" }}
             />
