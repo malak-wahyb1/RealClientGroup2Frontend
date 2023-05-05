@@ -4,8 +4,33 @@ import "./contact.css";
 import { Input, Button } from "@mui/material";
 import { MdPlace, MdLocalPhone, MdEmail } from "react-icons/md";
 import { Rating } from "@mui/lab";
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-export default function contact() {
+export default function Contact() {
+  const [name, setName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [message, setMessage] = React.useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .post("http://localhost:8001/contact/", {
+        fullName: name,
+        email: email,
+        message: message,
+      })
+      .then((res) => {
+        toast.success("Message sent successfully");
+        console.log(res.message);
+      })
+      .catch((err) => {
+        toast.error("Message not sent successfully");
+        console.log(err);
+      });
+  };
+
   return (
     <div className="container">
       <div className="info-contact">
@@ -35,19 +60,42 @@ export default function contact() {
           <div className="inputs">
             <span>Contact Us</span>
             <div>
-              <label htmlFor="name">Name:</label>
-              <Input type="text" id="name" name="name" required />
+              <label htmlFor="name">fullName:</label>
+              <Input
+                type="text"
+                onChange={(e) => {
+                  setName(e.target.value);
+                }}
+                id="name"
+                name="name"
+                required
+              />
             </div>
             <div>
               <label htmlFor="email">Email:</label>
-              <Input type="email" id="email" name="email" required />
+              <Input
+                type="email"
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+                id="email"
+                name="email"
+                required
+              />
             </div>
             <div>
               <label htmlFor="message">Message:</label>
-              <Input id="message" name="message" required />
+              <Input
+                id="message"
+                onChange={(e) => {
+                  setMessage(e.target.value);
+                }}
+                name="message"
+                required
+              />
             </div>
             <div className="button">
-              <Button variant="contained" type="submit">
+              <Button variant="contained" type="submit" onClick={handleSubmit}>
                 Send Message
               </Button>
             </div>
@@ -71,9 +119,27 @@ export default function contact() {
         </div>
       </div>
       <div className="feedback">
-          <label htmlFor="rating">Rating:</label>
-          <Rating name="rating" max={5} required />
+        <label htmlFor="rating">Rating:</label>
+        <Rating
+          name="rating"
+          onClick={(e) => {
+            axios
+              .post("http://localhost:8001/review/", {
+                review: e.target.value,
+              })
+              .then((res) => {
+                console.log(res);
+              })
+              .catch((err) => {
+                toast.error("Message not sent successfully");
+                console.log(err);
+              });
+          }}
+          max={5}
+          required
+        />
       </div>
+      <ToastContainer />
     </div>
   );
 }
