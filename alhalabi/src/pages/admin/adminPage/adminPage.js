@@ -35,17 +35,15 @@ function AdminPage() {
 
   return (
     <section>
-     
       <h1>Admin</h1>
       <FormComponent
-  inputFields={[
-    { name: "userName", label: "User Name", type: "text" },
-    { name: "email", label: "Email", type: "email" },
-    { name: "FirstName", label: "FullName", type: "email" },
-
-  ]}
-  title="Admin"
-/>
+        inputFields={[
+          { name: "userName", label: "User Name", type: "text" },
+          { name: "email", label: "Email", type: "email" },
+          { name: "FirstName", label: "FullName", type: "email" },
+        ]}
+        title="Admin"
+      />
 
       <section className="admin-cards">
         {Admin.map((admin) => {
@@ -57,6 +55,19 @@ function AdminPage() {
               <div class="left">
                 <div class="flag_wrapper">
                   <PersonIcon sx={{ marginTop: "17px" }} />
+
+                  <section className="admin_action">
+                    <EditAdmin
+                      inputFields={[
+                        { name: "userName", label: "User Name", type: "text" },
+                        { name: "email", label: "Email", type: "email" },
+                        { name: "FirstName", label: "FullName", type: "email" },
+                      ]}
+                      title="Admin"
+                    />
+                    <DeleteComponent />
+                  </section>
+
                 </div>
               </div>
 
@@ -72,9 +83,7 @@ function AdminPage() {
             </div>
           );
         })}
-    
       </section>
-   
     </section>
   );
 }

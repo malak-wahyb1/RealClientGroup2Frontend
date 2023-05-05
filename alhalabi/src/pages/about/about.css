@@ -43,18 +43,6 @@
   height: 62.5rem;
 }
 
-.about-icons {
-  display: flex;
-  justify-content: space-around;
-}
-
-.about-icons a {
-  margin-top: 5rem;
-  margin-bottom: 5rem;
-
-  font-size: 3rem;
-}
-
 @media only screen and (max-width: 600px) {
   .about-main {
     width: 90%;
@@ -80,9 +68,5 @@
     width: 100%;
     height: 15rem;
     margin-top: 2rem;
-  }
-
-  .about-icons {
-    margin-top: -4rem;
   }
 }

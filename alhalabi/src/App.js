@@ -2,7 +2,7 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/home/home";
 import About from "./pages/about/about";
-import Order from "./pages/order";
+import Contact from "./pages/contact/contact";
 import Visiter from "./routes/visiter";
 import Admin from "./routes/admin";
 import SignUp from "./components/auth/signUp";
@@ -21,11 +21,17 @@ import Customers from "./pages/admin/customers/customers";
 import Orders from "./pages/admin/orders/orders";
 import Offers from "./pages/admin/offers/offers";
 import Payment from "./pages/admin/Payment/payments";
+
+import { CartProvider } from "./components/card/productContext";
+import RequireAuth from "./components/context/RequireAuth";
+import Profile from "./components/User/profiel";
+import Checkout from "./pages/checkout/checkout";
+
 // import Footer from "./components/footer/footer";
 function App() {
   return (
     <div className="App">
-     
+      <CartProvider>
       <Routes>
       
         <Route path="/dashboard/admin" element={<LoginAdmin />} />
@@ -44,22 +50,25 @@ function App() {
 
 
         </Route>
-        <Route element={<RequireAuth/>}>
+
+        <Route path="/" element={<Visiter />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+
+        <Route element={<RequireAuth/>}/>
+        <Route path='/checkout' element={<Checkout/>}/>
        
         <Route path="/profile" element={<Profile/>} />
-          <Route path="/order" element={<Order />} />
+
         </Route>
-        
-        <Route path="/" element={<Visiter />}>
        
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        </Route>
+      
         <Route path="/signIn" element={<SignIn />} />
         <Route path="/signUp" element={<SignUp />} />
-        {/* <Route path="/dashboard/footer" element={<Footer />} /> */}
-      </Routes>
       
+      </Routes>
+      </CartProvider>
     </div>
   );
 }

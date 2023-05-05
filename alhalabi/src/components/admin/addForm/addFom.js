@@ -1,3 +1,4 @@
+
 import * as React from 'react';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
@@ -10,6 +11,7 @@ import AddIcon from '@mui/icons-material/Add';
 import './addForm.css'
 import { Sheet } from '@mui/joy';
 export default function FormComponent(props) {
+
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -21,17 +23,31 @@ export default function FormComponent(props) {
   };
 
   return (
-    <section className='addForm' >
-      <Sheet sx={{ borderRadius: "50px", bgcolor: "#0097B2",padding:"15px",boxShadow:"0px 1px 7px rgba(0, 0, 0, 0.5)" ,}}>
-
-        <AddIcon sx={{color:"white",width:"30px",':hover':{
-            cursor:"pointer",
-        }}} onClick={handleClickOpen}/>
-     </Sheet>
+    <section className="addForm">
+      <Sheet
+        sx={{
+          borderRadius: "50px",
+          bgcolor: "#0097B2",
+          padding: "15px",
+          boxShadow: "0px 1px 7px rgba(0, 0, 0, 0.5)",
+        }}
+      >
+        <AddIcon
+          sx={{
+            color: "white",
+            width: "30px",
+            ":hover": {
+              cursor: "pointer",
+            },
+          }}
+          onClick={handleClickOpen}
+        />
+      </Sheet>
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle sx={{color:"#06023B"}}>Add New {props.title}</DialogTitle>
+        <DialogTitle sx={{ color: "#06023B" }}>
+          Add New {props.title}
+        </DialogTitle>
         <DialogContent>
-         
           {props.inputFields.map((input, index) => (
             <TextField
               key={index}
@@ -42,7 +58,7 @@ export default function FormComponent(props) {
               type={input.type}
               fullWidth
               variant="standard"
-              sx={{color:"#06023B"}}
+              sx={{ color: "#06023B" }}
             />
           ))}
         </DialogContent>
