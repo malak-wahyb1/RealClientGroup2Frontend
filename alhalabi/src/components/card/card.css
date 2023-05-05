@@ -138,6 +138,7 @@
 
 .containerProduct .cardProduct .contentBx .size span:hover {
   background: var(--secondary);
+  color: var(--primary);
 }
 
 .containerProduct .cardProduct .contentBx .color span {

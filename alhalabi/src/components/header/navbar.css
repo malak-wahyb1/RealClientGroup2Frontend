@@ -1,13 +1,19 @@
-nav {
+
+.navbar {
   background-color: var(--primary);
-  height: 56px;
+  height: 90px;
   width: 90%;
   padding: 0 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 2pc auto;
+  margin:  auto;
   font-family: sans-serif;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100000000;
 }
 
 nav ul {
@@ -287,4 +293,20 @@ nav li a:nth-child(2) {
     display: none ;
   }
   
+}
+.navbar.scroll {
+  background-color: var(--accent);
+width: 100%;
+justify-content: space-between;
+
+}
+.navbar.scroll li a{
+color: var(--primary);
+margin: 5px;
+}
+.navbar.scroll li .logo{
+  filter: brightness(0) invert(1);
+}
+.navbar.scroll  .checkout{
+  filter: brightness(0) invert(1);
 }

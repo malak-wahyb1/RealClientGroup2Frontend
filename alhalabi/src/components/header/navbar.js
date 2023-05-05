@@ -9,15 +9,35 @@ import AssignmentIcon from "@mui/icons-material/Assignment";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import ContactPhoneIcon from "@mui/icons-material/ContactPhone";
 import FormDialog from "../suggestProduct/suggest";
-
+import { Home } from "@mui/icons-material";
+import { useContext } from "react";
+import cartContext from "../../components/card/productContext";
+import { useEffect } from "react";
 function Navbar() {
+  const { items } = useContext(cartContext);
+
   const [isMobileNav, setIsMobileNav] = useState(false);
 
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset;
+      setIsScrolled(scrollTop > 0);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   const toggleMobileNav = () => {
     setIsMobileNav(!isMobileNav);
   };
   return (
-    <nav className={`navbar ${isMobileNav ? "mobile-nav" : ""}`}>
+   
+    <nav
+    className={`navbar ${isMobileNav ? "mobile-nav" : ""} ${isScrolled ? "scroll" : ""}`}
+    >
       <ul className="start">
         <li>
           <Link to="/" className="logo">
@@ -32,17 +52,14 @@ function Navbar() {
           </Link>
         </li>
       </ul>
-      <div className="center-navbar">
-        <form>
-          <input type="text" placeholder="Search" />
-          <button type="submit">
-            <svg viewBox="0 0 24 24">
-              <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
-            </svg>
-          </button>
-        </form>
-      </div>
+
       <ul className="end">
+        <li>
+          <Link to="/">Home</Link>
+          <Link to="/">
+            <Home />
+          </Link>
+        </li>
         <li>
           <Link to="/about">About</Link>
           <Link to="/about">
@@ -58,25 +75,25 @@ function Navbar() {
           </Link>
         </li>
         <li>
-          <Link to='/contact'>Contact us</Link>
+          <Link to="/contact">Contact us</Link>
           <Link>
             <ContactPhoneIcon />
           </Link>
         </li>
-        <li>
-          <Link to='/checkout'>
+        <li className="checkout">
+          <Link to="/checkout">
             <img src={order} alt="order" />
+            <span style={{ color: "#06023b" }}>
+              {items.reduce((acc, item) => acc + item.quantity, 0)}
+            </span>
           </Link>
-          <Link to='/checkout'>
+          <Link to="/checkout">
             <img src={order} alt="order" />
+            <span>1</span>
           </Link>
         </li>
         <li>
-          <Link to="/profile">
-            <AccountCircleOutlinedIcon
-              style={{ color: "#0097B2", width: "30", height: "30" }}
-            />
-          </Link>
+          <Link to="/profile">SignIn/SignUp</Link>
           <Link to="/profile">
             <AccountCircleOutlinedIcon
               style={{ color: "#0097B2", width: "30", height: "30" }}

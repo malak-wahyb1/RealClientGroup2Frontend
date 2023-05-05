@@ -4,14 +4,14 @@ import PersonIcon from "@mui/icons-material/Person";
 import "./adminPage.css";
 import CustomizedMenus from "../../../components/admin/role";
 import FormComponent from "../../../components/admin/addForm/addFom";
+import DeleteComponent from "../../../components/admin/delete/delete";
+import EditAdmin from "../../../components/admin/editForm/editAdmin";
 
 function AdminPage() {
- 
   const [Admin, setAdmin] = useState([]);
   useEffect(() => {
-    console.log("http://localhost:4000");
     axios
-      .get(`${process.env.REACT_APP_URL}/auth`)
+      .get(`${process.env.REACT_APP_URL}auth`)
       .then((response) => {
         console.log(response.data.response);
         // add an `id` property to each row object
@@ -50,7 +50,7 @@ function AdminPage() {
           return (
             <div class="card">
               <div class="interests">
-                <CustomizedMenus  />
+                <CustomizedMenus />
               </div>
               <div class="left">
                 <div class="flag_wrapper">
@@ -67,7 +67,6 @@ function AdminPage() {
                     />
                     <DeleteComponent />
                   </section>
-
                 </div>
               </div>
 
