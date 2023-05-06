@@ -24,7 +24,7 @@ export default function Table(props) {
   }
 
  
-  z
+  
   return (
     <div style={{ height: 700, width: "80%" }} className="Table">
        

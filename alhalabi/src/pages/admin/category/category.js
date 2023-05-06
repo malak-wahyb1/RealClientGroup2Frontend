@@ -14,6 +14,7 @@ function Category(){
           const data = response.data.message.map((row, index) => ({
             ...row,
             id: index + 1,
+            image: `${process.env.REACT_APP_URL}${row.image}` 
           }));
           setCategory(data);
         })
@@ -22,7 +23,9 @@ function Category(){
         });
     }, []);
     const columns = [
-     z
+      {field:"id",width: 312},
+        { field: "Name", headerName: "Name", width: 450 },
+        { field: "image", headerName: "Image", width: 300 },
     
         {
           field: "delete",

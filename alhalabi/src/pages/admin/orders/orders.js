@@ -7,7 +7,7 @@ function Orders(){
     useEffect(() => {
       console.log(process.env.REACT_APP_URL);
       axios
-        .get(`${process.env.REACT_APP_URL}Orders`)
+        .get(`${process.env.REACT_APP_URL}order`)
         .then((response) => {
           console.log(response);
           // add an `id` property to each row object
@@ -23,7 +23,7 @@ function Orders(){
     }, []);
     const columns = [
       {field:"id",width: 300},
-        { field: "totaleprice", headerName: "TotalePrice", width: 300 },
+        { field: "totalprice", headerName: "TotalePrice", width: 300 },
         { field: "customer", headerName: "Customer", width: 300 },
         { field: "product", headerName: "Product", width: 300 },
         { field: "payment", headerName: "Payment", width: 300 },
