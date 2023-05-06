@@ -9,11 +9,13 @@ import AssignmentIcon from "@mui/icons-material/Assignment";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import ContactPhoneIcon from "@mui/icons-material/ContactPhone";
 import FormDialog from "../suggestProduct/suggest";
-import { Home } from "@mui/icons-material";
+import { Home, Person } from "@mui/icons-material";
 import { useContext } from "react";
 import cartContext from "../../components/card/productContext";
 import { useEffect } from "react";
+import userContext from ".././../components/context/userContext";
 function Navbar() {
+  const { token } = useContext(userContext);
   const { items } = useContext(cartContext);
 
   const [isMobileNav, setIsMobileNav] = useState(false);
@@ -93,12 +95,15 @@ function Navbar() {
           </Link>
         </li>
         <li>
-          <Link to="/user">SignIn/SignUp</Link>
-          <Link to="/user">
+          {token?(<Link to='/user'><Person/></Link>):(   <Link to="/user">SignIn/SignUp</Link>)}
+          {token?(<Link to='/user'><Person/></Link>):(     <Link to="/user">
             <AccountCircleOutlinedIcon
               style={{ color: "#0097B2", width: "30", height: "30" }}
             />
-          </Link>
+          </Link>)}
+
+               
+        
         </li>
         <li>
           <div

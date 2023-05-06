@@ -5,7 +5,6 @@ import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
@@ -15,11 +14,11 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import "./auth.css";
 import img from "./login.png";
 import axios from "axios";
+import userContext from ".././context/userContext";
 import { ToastContainer, toast } from "react-toastify";
-import { useState } from "react";
-import { useNavigate,useLocation } from "react-router-dom";
-import  useAuth  from "../context/useAuth";
-import { useCookies } from "react-cookie";
+import { useState, useContext } from "react";
+import { useNavigate, useLocation, Link } from "react-router-dom";
+
 function Copyright(props) {
   return (
     <Typography
@@ -39,26 +38,29 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignIn() {
-  const { setAuth } = useAuth();
+  const { addToken } = useContext(userContext);
+  const {goSignUp}=useContext(userContext)
+
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const [cookies, setCookie] = useCookies(["name"]);
   const location = useLocation();
   const { from } = location.state || { from: { pathname: "/" } };
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${process.env.REACT_APP_URL}customer/login`, {
-        email,
-        password,
-      });
-      console.log(response.data);
+      const response = await axios.post(
+        `${process.env.REACT_APP_URL}customer/login`,
+        {
+          email,
+          password,
+        }
+      );
+      console.log(response.data.token);
+      addToken(response.data.token);
       toast.success("logIn successful");
       navigate(from);
-      const token = response?.data?.token;
-      setCookie("token", response.data.token);
-      setAuth({ email, password, token });
+
       localStorage.setItem("token", "true");
     } catch (error) {
       console.log(error);
@@ -77,7 +79,8 @@ export default function SignIn() {
             <CssBaseline />
 
             <Box
-      noValidate onSubmit={handleSubmit}
+              noValidate
+              onSubmit={handleSubmit}
               sx={{
                 marginTop: 5,
                 display: "flex",
@@ -87,7 +90,6 @@ export default function SignIn() {
                 marginleft: 5,
                 float: "right",
               }}
-           
             >
               <Avatar sx={{ m: 3, bgcolor: "#0097B2", width: 75, height: 75 }}>
                 <LockOutlinedIcon sx={{ width: 50, height: 50 }} />
@@ -127,24 +129,13 @@ export default function SignIn() {
                   fullWidth
                   variant="contained"
                   sx={{ mt: 2, mb: 2, background: "#0097B2" }}
-                  
                 >
                   Sign In
                 </Button>
                 <Grid container>
                   <Grid item>
-                    <Link
-                      href="/user/signUp"
-                      sx={{
-                        color: "#0097B2",
-                        textDecoration: "none",
-                        "&:hover": {
-                          textDecoration: "underline",
-                        },
-                      }}
-                      variant="body2"
-                    >
-                      {"Don't have an account? Sign Up"}
+                    <Link onClick={goSignUp} >
+                    Don't have an account? Sign Up
                     </Link>
                   </Grid>
                 </Grid>

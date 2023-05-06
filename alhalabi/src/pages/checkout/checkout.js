@@ -1,12 +1,15 @@
 import { useContext } from "react";
 import cartContext from "../../components/card/productContext";
-import { Add, Email, Home, LocationCity, Note, NoteTwoTone, Person, Phone, Remove, Warning } from "@mui/icons-material";
+import { Add, Email, Home, LocationCity,  Person, Phone, Remove, Warning } from "@mui/icons-material";
 import React, { useState } from "react";
 import "./checkout.css";
-import { Button } from "@mui/material";
 import TruckAnimation from "../../components/orderAnimation/orderAnimation";
+import userContext from ".././../components/context/userContext";
+import NotUser from "../../components/notUser/notUser";
 
 function Checkout() {
+  const { token } = useContext(userContext);
+
   const { items, updateQuantity } = useContext(cartContext);
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -43,6 +46,7 @@ function Checkout() {
       updateQuantity(id, newQuantity);
     }
   };
+  if(token){
   if (items.length > 0) {
   return (
     <div className="global-container">
@@ -79,7 +83,6 @@ function Checkout() {
                     </span>
                   </div>
                 </div>
-                <div className="item-total">{itemPrice}</div>
               </div>
             );
           })}
@@ -195,5 +198,8 @@ function Checkout() {
       </section>
     )
   }
-}
+}else{
+  return( <NotUser/>)
+ 
+}}
 export default Checkout;

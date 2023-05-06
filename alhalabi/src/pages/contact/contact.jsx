@@ -2,18 +2,23 @@ import React from "react";
 import img from "../../images/imgContact.png";
 import "./contact.css";
 import { Input, Button, Rating, TextField } from "@mui/material";
-import { MdPlace, MdLocalPhone, MdEmail } from "react-icons/md";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useContext } from "react";
+import userContext from ".././../components/context/userContext";
+import NotUser from "../../components/notUser/notUser";
+import { useState } from "react";
 
 export default function Contact() {
+  const [user,setUser]=useState(true)
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [message, setMessage] = React.useState("");
-
+ const { token } = useContext(userContext);
   const handleSubmit = (e) => {
     e.preventDefault();
+    if(token){
     axios
       .post("http://localhost:8001/contact/", {
         fullName: name,
@@ -28,8 +33,28 @@ export default function Contact() {
         toast.error("Message not sent successfully");
         console.log(err);
       });
+    }else{
+    setUser(false)
+    }
   };
-
+ const handleSubmitReview=(e)=>{
+  if(token){
+    axios
+      .post("http://localhost:8001/review/", {
+        review: e.target.value,
+      })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        toast.error("Message not sent successfully");
+        console.log(err);
+      });
+    }else{
+      setUser(false)
+      }
+   }
+if(user){
   return (
     <div className="container">
       <h1>Get In Touch</h1>
@@ -101,28 +126,21 @@ export default function Contact() {
         <Rating
           name="rating"
          
-          onClick={(e) => {
-            axios
-              .post("http://localhost:8001/review/", {
-                review: e.target.value,
-              })
-              .then((res) => {
-                console.log(res);
-              })
-              .catch((err) => {
-                toast.error("Message not sent successfully");
-                console.log(err);
-              });
-          }}
+       
           max={5}
           required
         />
         <TextField placeholder="Leave a message" sx={{width:"100%"}}></TextField>
-        <Button sx={{bgcolor:" #0097b2",color:"white",width:"100%", '&:hover':{
+        <Button    onClick={handleSubmitReview} sx={{bgcolor:" #0097b2",color:"white",width:"100%", '&:hover':{
                     color:"#0097b2"
                   }}}>Send Review</Button>
       </div>
       <ToastContainer />
     </div>
   );
+                }else{
+                  return(
+                  <NotUser/>
+                  )
+                }
 }
