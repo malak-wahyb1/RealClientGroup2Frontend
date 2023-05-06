@@ -13,7 +13,6 @@ import AdminPage from "./pages/admin/adminPage/adminPage";
 import Category from "./pages/admin/category/category";
 import SubCategory from "./pages/admin/subcategory/subCategory";
 import ContactDash from "./pages/admin/contactus/contact.js";
-import RequireAuth from "./components/context/RequireAuth";
 import Profile from "./components/User/profiel";
 import Review from "./pages/admin/ReviewAdmin/review";
 import Products from "./pages/admin/products/product";
@@ -21,7 +20,7 @@ import Customers from "./pages/admin/customers/customers";
 import Orders from "./pages/admin/orders/orders";
 import Offers from "./pages/admin/offers/offers";
 import Payment from "./pages/admin/Payment/payments";
-
+import { UserProvider } from "./components/context/userContext";
 import { CartProvider } from "./components/card/productContext";
 import Checkout from "./pages/checkout/checkout";
 import LoginUser from "./pages/logIn/loginUser";
@@ -30,6 +29,7 @@ import LoginUser from "./pages/logIn/loginUser";
 function App() {
   return (
     <div className="App">
+      <UserProvider>
       <CartProvider>
         <Routes>
           <Route path="/dashboard/admin" element={<LoginAdmin />} />
@@ -54,19 +54,19 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            <Route element={<RequireAuth />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/profile" element={<Profile />} />
           </Route>
           <Route path="/user" element={<LoginUser/>}>
-          <Route path="/user/signIn" element={<SignIn />} />
-          <Route path="/user/signUp" element={<SignUp />} />
+          <Route path="/user/signIn" element={<SignIn/>} />
+          <Route path="/user/signUp" element={<SignUp/>} />
           <Route path="/user/profile" element={<Profile/>} />
 
           </Route>
         
         </Routes>
       </CartProvider>
+      </UserProvider>
     </div>
   );
 }
