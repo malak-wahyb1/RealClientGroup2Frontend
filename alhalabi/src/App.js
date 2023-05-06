@@ -24,6 +24,7 @@ import Payment from "./pages/admin/Payment/payments";
 
 import { CartProvider } from "./components/card/productContext";
 import Checkout from "./pages/checkout/checkout";
+import LoginUser from "./pages/logIn/loginUser";
 
 // import Footer from "./components/footer/footer";
 function App() {
@@ -57,8 +58,13 @@ function App() {
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/profile" element={<Profile />} />
           </Route>
-          <Route path="/signIn" element={<SignIn />} />
-          <Route path="/signUp" element={<SignUp />} />
+          <Route path="/user" element={<LoginUser/>}>
+          <Route path="/user/signIn" element={<SignIn />} />
+          <Route path="/user/signUp" element={<SignUp />} />
+          <Route path="/user/profile" element={<Profile/>} />
+
+          </Route>
+        
         </Routes>
       </CartProvider>
     </div>

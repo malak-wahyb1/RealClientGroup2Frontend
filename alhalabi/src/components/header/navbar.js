@@ -93,8 +93,8 @@ function Navbar() {
           </Link>
         </li>
         <li>
-          <Link to="/profile">SignIn/SignUp</Link>
-          <Link to="/profile">
+          <Link to="/user">SignIn/SignUp</Link>
+          <Link to="/user">
             <AccountCircleOutlinedIcon
               style={{ color: "#0097B2", width: "30", height: "30" }}
             />

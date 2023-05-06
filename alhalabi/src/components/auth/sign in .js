@@ -49,7 +49,7 @@ export default function SignIn() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${process.env.REACT_APP_URL}/customer/login`, {
+      const response = await axios.post(`${process.env.REACT_APP_URL}customer/login`, {
         email,
         password,
       });
@@ -134,7 +134,7 @@ export default function SignIn() {
                 <Grid container>
                   <Grid item>
                     <Link
-                      href="/signUp"
+                      href="/user/signUp"
                       sx={{
                         color: "#0097B2",
                         textDecoration: "none",

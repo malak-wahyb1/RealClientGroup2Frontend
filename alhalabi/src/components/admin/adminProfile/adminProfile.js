@@ -36,7 +36,7 @@ function MenuButton({
   const isOnButton = React.useRef(false);
   const menuActions = React.useRef(null);
   const internalOpen = React.useRef(open);
-
+ 
   const handleButtonKeyDown = (event) => {
     internalOpen.current = open;
     if (event.key === "ArrowDown" || event.key === "ArrowUp") {
