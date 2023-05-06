@@ -4,7 +4,7 @@ import Table from "../../../components/admin/tables/table.js";
 import DeleteComponent from "../../../components/admin/delete/delete.js";
 
 
-function Contact(){
+function ContactDash(){
     const [Contact, setContact] = useState([]);
     useEffect(() => {
       console.log(process.env.REACT_APP_URL);
@@ -45,4 +45,4 @@ function Contact(){
     </div>
   )
 }
-    export default Contact;
+    export default ContactDash;

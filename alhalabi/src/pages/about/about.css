@@ -2,10 +2,11 @@
   width: 80%;
   margin-left: auto;
   margin-right: auto;
+  font-family: sans-serif;
 }
 
 .about-section-header {
-  font-size: 3em;
+  font-size: 38px;
   text-align: center;
   color: var(--accent);
   margin-bottom: 5rem;
@@ -15,23 +16,23 @@
 .about-section-content {
   display: block;
   color: var(--secondary);
-  font-family: var(--font-family);
+  font-family: sans-serif;
   /* width: 50%;  */
   margin: auto;
   text-align: center;
   line-height: 2rem;
-  font-family: "Montserrat";
 }
 
 .about-img-map {
   display: flex;
   justify-content: space-between;
   margin-top: 5rem;
+  margin-bottom: 5rem;
 }
 
 .about-image {
   width: 57%;
-  height: 62.5rem;
+  height: 50rem;
 }
 
 .about-map {
@@ -40,7 +41,7 @@
   justify-content: center;
   align-items: center;
   width: 40%;
-  height: 62.5rem;
+  height: 50rem;
 }
 
 @media only screen and (max-width: 600px) {

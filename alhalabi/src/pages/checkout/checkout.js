@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import cartContext from "../../components/card/productContext";
-import { Add, Email, Home, LocationCity, Person, Phone, Remove } from "@mui/icons-material";
+import { Add, Email, Home, LocationCity, Note, NoteTwoTone, Person, Phone, Remove, Warning } from "@mui/icons-material";
 import React, { useState } from "react";
 import "./checkout.css";
 import { Button } from "@mui/material";
@@ -95,6 +95,7 @@ function Checkout() {
         <form onSubmit={handleSubmit} id="checkout-form">
           <section>
             <h3>Contact information</h3>
+            <span className="warning"><Warning/> <h5>You Can Pay By Which Or Cash On Delivery</h5></span>
               <div className="form-group">
                 <label htmlFor="email">E-mail</label>
                 <div>

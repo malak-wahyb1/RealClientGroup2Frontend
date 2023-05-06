@@ -1,10 +1,8 @@
 import React from "react";
 import img from "../../images/imgContact.png";
 import "./contact.css";
-import { Input, Button, Rating } from "@mui/material";
+import { Input, Button, Rating, TextField } from "@mui/material";
 import { MdPlace, MdLocalPhone, MdEmail } from "react-icons/md";
-
-import { Rating } from "@mui/lab";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -32,37 +30,15 @@ export default function Contact() {
       });
   };
 
-
   return (
     <div className="container">
-      <div className="info-contact">
-        <div className="Icons-info">
-          <div className="info-container">
-            <div className="icon">
-              <MdPlace />
-            </div>
-            <span>Akkar , Halba</span>
-          </div>
-          <div className="info-container">
-            <div className="icon">
-              <MdEmail />
-            </div>
-            <span>alhalabi@gmail.com</span>
-          </div>
-          <div className="info-container">
-            <div className="icon">
-              <MdLocalPhone />
-            </div>
-            <span>+96176885959</span>
-          </div>
-        </div>
-      </div>
+      <h1>Get In Touch</h1>
       <div className="form">
         <div className="inputs-form">
           <div className="inputs">
             <span>Contact Us</span>
             <div>
-              <label htmlFor="name">fullName:</label>
+              <label htmlFor="name">Full Name:</label>
               <Input
                 type="text"
                 onChange={(e) => {
@@ -124,6 +100,7 @@ export default function Contact() {
         <label htmlFor="rating">Rating:</label>
         <Rating
           name="rating"
+         
           onClick={(e) => {
             axios
               .post("http://localhost:8001/review/", {
@@ -140,6 +117,10 @@ export default function Contact() {
           max={5}
           required
         />
+        <TextField placeholder="Leave a message" sx={{width:"100%"}}></TextField>
+        <Button sx={{bgcolor:" #0097b2",color:"white",width:"100%", '&:hover':{
+                    color:"#0097b2"
+                  }}}>Send Review</Button>
       </div>
       <ToastContainer />
     </div>
