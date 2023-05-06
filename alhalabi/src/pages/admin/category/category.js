@@ -22,9 +22,7 @@ function Category(){
         });
     }, []);
     const columns = [
-      {field:"id",width: 312},
-        { field: "Name ", headerName: "Name", width: 450 },
-        { field: "image", headerName: "Image", width: 300 },
+     z
     
         {
           field: "delete",
