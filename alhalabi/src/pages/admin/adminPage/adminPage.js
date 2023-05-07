@@ -37,11 +37,11 @@ function AdminPage() {
     <section>
       <h1>Admin</h1>
       <FormComponent
-        inputFields={[
-          { name: "userName", label: "User Name", type: "text" },
-          { name: "email", label: "Email", type: "email" },
-          { name: "FirstName", label: "FullName", type: "email" },
-        ]}
+        // inputFields={[
+        //   { name: "userName", label: "User Name", type: "text" },
+        //   { name: "email", label: "Email", type: "email" },
+        //   { name: "FirstName", label: "FullName", type: "email" },
+        // ]}
         title="Admin"
       />
 
@@ -57,7 +57,7 @@ function AdminPage() {
                   <PersonIcon sx={{ marginTop: "17px" }} />
 
                   <section className="admin_action">
-                    <EditAdmin
+                    {/* <EditAdmin
                       inputFields={[
                         { name: "userName", label: "User Name", type: "text" },
                         { name: "email", label: "Email", type: "email" },
@@ -65,7 +65,7 @@ function AdminPage() {
                       ]}
                       title="Admin"
                     />
-                    <DeleteComponent />
+                    <DeleteComponent /> */}
                   </section>
                 </div>
               </div>

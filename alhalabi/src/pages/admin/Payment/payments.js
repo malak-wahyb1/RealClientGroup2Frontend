@@ -13,7 +13,12 @@ function Payment(){
         .then((response) => {
           console.log(response);
           // add an `id` property to each row object
-          const data = response.data.message
+          const data = response.data.message.map((row, index) => ({
+            ...row,
+            id: index + 1,
+            image: `${process.env.REACT_APP_URL}${row.image}` 
+          }));
+          
           setPayment(data);
         })
         .catch((error) => {
@@ -22,7 +27,7 @@ function Payment(){
     }, []);
     const columns = [
       {field:"id",width: 312},
-        { field: "name", headerName: "Name", width: 400 },
+        { field: "Name", headerName: "Name", width: 400 },
         { field: "image", headerName: "Image", width: 400 },
      
 
