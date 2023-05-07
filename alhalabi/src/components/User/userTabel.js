@@ -8,13 +8,13 @@ const columns: GridColDef[] = [
   {
     field: 'order',
     headerName: 'Order',
-    width: 250,
+    width: 220,
     editable: true,
   },
   {
     field: 'address',
     headerName: 'Address',
-    width: 250,
+    width: 220,
     editable: true,
   },
   {
@@ -57,22 +57,22 @@ const rows = [
         const screenXl = useMediaQuery(theme.breakpoints.only('xl'));
       
         let height = 360;
-        let width = 1199;
+        let width = 1100;
         if (screenXs) {
           height = 200;
-          width = 350;
+          width = 200;
         } else if (screenSm) {
           height = 250;
-          width = 600;
+          width = 400;
         } else if (screenMd) {
           height = 300;
-          width = 800;
+          width = 600;
         } else if (screenLg) {
           height = 360;
-          width = 1000;
+          width = 800;
         } else if (screenXl) {
           height = 360;
-          width = 1199;
+          width = 1100;
         }
 
   return (

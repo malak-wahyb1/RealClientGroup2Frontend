@@ -21,6 +21,9 @@ margin-right: 2.6%;
 margin-top: 1%;
 
 }
+.About{
+  margin-top: 10pc;
+}
 
 @media screen and (max-width: 768px) {
   .visitor-main {

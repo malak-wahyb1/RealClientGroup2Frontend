@@ -13,6 +13,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import { useState } from "react";
+
 import { useNavigate } from "react-router-dom";
 import img from "./login.png";
 import "./auth.css";
@@ -43,18 +44,21 @@ export default function SignUp() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${process.env.REACT_APP_URL}/customer`, {
-        name,
-        phoneNum,
-        email,
-        address,
-        password,
-      });
+      const response = await axios.post(
+        `${process.env.REACT_APP_URL}customer`,
+        {
+          name,
+          phoneNum,
+          email,
+          address,
+          password,
+        }
+      );
       console.log(response.data);
       toast.success("SignUp successful!", {
         position: toast.POSITION.BOTTOM_LEFT,
       });
-      navigate("/signIn");
+      navigate("/user/signIn");
     } catch (error) {
       console.error(error);
       toast.error("Error SignUp. Please try again.");
@@ -163,7 +167,7 @@ export default function SignUp() {
                 <Grid container justifyContent="flex-start">
                   <Grid item>
                     <Link
-                      href="/signIn"
+                      href="/user/signIn"
                       sx={{
                         color: "#0097B2",
                         textDecoration: "none",

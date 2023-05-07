@@ -1,7 +1,7 @@
 .signIn{
 /* margin: auto; */
 display: flex;
-align-items: center;
+align-items: flex-start;
 justify-content: space-around;
 min-height: 100vh;
 
@@ -13,6 +13,13 @@ width: 50%;
 .signup_form{
     justify-self: flex-end;
 }
+.signIn a{
+text-decoration: none;
+}
+.signIn a:hover{
+cursor: pointer;
+}
+
 @media only screen and (max-width: 1330px) {
  
     .signIn-img {
@@ -24,3 +31,4 @@ width: 50%;
       margin-top: 30px;
     }
   }
+  

@@ -3,12 +3,12 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import logo from './logo.png';
+import logo from "./logo.png";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import { useNavigate } from "react-router-dom";
@@ -31,21 +31,24 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function LoginComponent() {
-  const [password,setPassword]=useState();
-  const [username,setUsername]=useState();
-  const navigate =useNavigate()
+  const [password, setPassword] = useState();
+  const [username, setUsername] = useState();
+  const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try{
-      const response = await axios.post(`${process.env.REACT_APP_URL}/auth/login`,{password,username});
+    try {
+      const response = await axios.post(
+        `${process.env.REACT_APP_URL}auth/login`,
+        { password, username }
+      );
       console.log(response.data);
       toast.success("logIn successful");
-      navigate("/dashboard/admin/AdminPage")
-    }catch(error){
+      navigate("/dashboard/admin/AdminPage");
+    } catch (error) {
       console.log(error);
-      toast.error("Error SignIn, Please Try Again ")
+      toast.error("Error SignIn, Please Try Again ");
     }
- 
   };
 
   return (
@@ -60,14 +63,21 @@ export default function LoginComponent() {
               flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
-
             }}
           >
             <Avatar sx={{ m: 3, bgcolor: "#0097B2", width: 75, height: 75 }}>
-            <img src={logo} alt="logo" style={{ width: 150, height: 150 ,marginTop:35,marginLeft:5}} />
-        
+              <img
+                src={logo}
+                alt="logo"
+                style={{
+                  width: 150,
+                  height: 150,
+                  marginTop: 35,
+                  marginLeft: 5,
+                }}
+              />
             </Avatar>
-            <Typography component="h1" variant="h4" >
+            <Typography component="h1" variant="h4">
               Log In
             </Typography>
             <Box
@@ -85,7 +95,7 @@ export default function LoginComponent() {
                 name="username"
                 autoComplete="username"
                 autoFocus
-                onChange={(e)=>setUsername(e.target.value)}
+                onChange={(e) => setUsername(e.target.value)}
               />
               <TextField
                 margin="normal"
@@ -96,23 +106,22 @@ export default function LoginComponent() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
-                onChange={(e)=>setPassword(e.target.value)}
+                onChange={(e) => setPassword(e.target.value)}
               />
-            
+
               <Button
-                type="submit" 
+                type="submit"
                 fullWidth
                 variant="contained"
                 sx={{ mt: 2, mb: 2, background: "#0097B2" }}
               >
-               Log In
+                Log In
               </Button>
-             
             </Box>
           </Box>
           <Copyright />
         </Container>
-        <ToastContainer/>
+        <ToastContainer />
       </ThemeProvider>
     </section>
   );

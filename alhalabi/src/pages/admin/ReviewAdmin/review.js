@@ -12,7 +12,7 @@ function Review(){
         .then((response) => {
           console.log(response);
           // add an `id` property to each row object
-          const data = response.data.message.map((row, index) => ({
+          const data = response.data.map((row, index) => ({
             ...row,
             id: index + 1,
           }));
@@ -24,8 +24,8 @@ function Review(){
     }, []);
     const columns = [
       {field:"id",width: 412},
-        { field: "Name ", headerName: "Name", width: 450 },
-        { field: "image", headerName: "Image", width: 400 },
+        { field: "review", headerName: "Review", width: 450 },
+        { field: "created_at", headerName: "Created_at", width: 400 },
     
      
       ];

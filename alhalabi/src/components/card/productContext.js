@@ -4,45 +4,67 @@ const CartContext = createContext();
 
 export function CartProvider({ children }) {
   const [existingValue, setExistingValue] = useState([]);
-   const [items, setItems] = useState([]);
+  const [items, setItems] = useState([]);
 
-   useEffect(() => {
-     // Get existing value from local storage
-     const valueFromLocalStorage = JSON.parse(localStorage.getItem("item")) || [];
-     setExistingValue(valueFromLocalStorage);
-   }, []);
-   
-   useEffect(() => {
+  useEffect(() => {
+    const valueFromLocalStorage =
+      JSON.parse(localStorage.getItem("item")) || [];
+    setExistingValue(valueFromLocalStorage);
+  }, []);
+
+  useEffect(() => {
     setItems(existingValue);
+  
   }, [existingValue]);
-
   const addToCart = (id, name, price, image) => {
     const quantity = 1;
-    const existingItemIndex = items.findIndex((item) => item.id === id);
-
-    if (existingItemIndex !== -1) {
-      // Item already exists, update quantity
-      const updatedItems = [...items];
-      updatedItems[existingItemIndex].quantity += quantity;
-      setItems(updatedItems);
+    const existingCart = JSON.parse(localStorage.getItem("item")) || [];
+    const existingItem = existingCart.find((item) => item.id === id);
+    if (existingItem) {
+      existingItem.quantity += quantity;
+      const updatedCart = JSON.stringify(existingCart);
+      localStorage.setItem("item", updatedCart);
+      setItems(existingCart);
     } else {
-      // Item does not exist, add to cart
       const item = { id, name, price, image, quantity };
-      setItems((prevState) => [...prevState, item]);
+      const newCart = [...existingCart, item];
+      const updatedCart = JSON.stringify(newCart);
+      localStorage.setItem("item", updatedCart);
+      setItems(newCart);
     }
-
-    // Update value with new items array
-    const updatedValue = JSON.stringify([...existingValue, ...items]);
-
-    // Set updated value back to local storage
-    localStorage.setItem("item", updatedValue);
+  };
+  const updateQuantity = (id, quantity) => {
+    const newItems = items.map((item) => {
+      if (item.id === id) {
+        const updatedItem = { ...item, quantity };
+        return updatedItem;
+      }
+      return item;
+    }).filter(item => item.quantity > 0); // filter out items with quantity 0
+    
+    const existingCart = JSON.parse(localStorage.getItem("item")) || [];
+    const existingItemIndex = existingCart.findIndex((item) => item.id === id);
+    
+    if (existingItemIndex !== -1) {
+      if (quantity === 0) {
+        existingCart.splice(existingItemIndex, 1); // remove item from existing cart
+      } else {
+        existingCart[existingItemIndex] = { id, name: items[existingItemIndex].name, price: items[existingItemIndex].price, image: items[existingItemIndex].image, quantity };
+      }
+    }
+    
+    const updatedCart = JSON.stringify(existingCart);
+    localStorage.setItem("item", updatedCart);
+    setItems(newItems);
   };
 
   return (
-    <CartContext.Provider value={{ items, addToCart }}>
+    <CartContext.Provider value={{ items, addToCart,updateQuantity }}>
       {children}
     </CartContext.Provider>
   );
+
+
 }
 
 export default CartContext;

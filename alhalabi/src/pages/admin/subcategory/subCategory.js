@@ -23,7 +23,7 @@ function SubCategory(){
     }, []);
     const columns = [
       {field:"id",width: 312},
-        { field: "Name ", headerName: "Name", width: 450 },
+        { field: "name", headerName: "Name", width: 450 },
         { field: "category", headerName: "Category", width: 300 },
     
         {

@@ -4,10 +4,13 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaEnvelope, FaPhone, FaHome } from "react-icons/fa";
 import LogoutIcon from '@mui/icons-material/Logout';
 import DataGridDemo from "./userTabel";
-import Navbar from "../header/navbar";
+import { useContext } from "react";
+import userContext from ".././../components/context/userContext";
 import axios from "axios";
 
 const Profile = (props) => {
+  const { user } = useContext(userContext);
+
     const navigate = useNavigate()
     const handleLogout = async()=>{
          try {const response = await axios.post(`http://localhost:4000/logout`);
@@ -16,32 +19,33 @@ const Profile = (props) => {
     }catch(error){console.log(error
         );}}
   return (
-    <main><Navbar/>
+    <main>
     <div className="profile">
       <section>
+      <h1 className="user-name">{user.name}</h1>
         <header className="profile-header">
           <div className="profile-img">
             <img
               src="https://media.istockphoto.com/id/1337144146/vector/default-avatar-profile-icon-vector.jpg?s=612x612&w=0&k=20&c=BIbFwuv7FxTWvh5S3vB6bkT0Qv8Vn8N5Ffseq84ClGI="
               width="200"
-              alt="Profile Image"
+              alt="ProfileImage"
             />
           </div>
           <div className="profile-nav-info">
-            <h3 className="user-name">User</h3>
-            <div className="info">
+          
+            <span className="info">
               <FaHome />{" "}
               <p id="state" className="state">
-               address
+              address: <span>{user.address}</span>
               </p>
-            </div>
-            <div className="info">
-              <FaPhone /> <p className="mobile-no">phone</p>
-            </div>
-            <div className="info">
+            </span>
+            <span className="info">
+              <FaPhone /> <p className="mobile-no">phone:<span> {user.phone}</span></p>
+            </span>
+            <span className="info">
               <FaEnvelope />
-              <p className="user-mail">email</p>
-            </div>
+              <p className="user-mail">email:<span> {user.email}</span></p>
+            </span>
           </div>
         </header>
       </section>

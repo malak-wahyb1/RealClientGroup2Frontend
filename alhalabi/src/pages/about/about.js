@@ -1,6 +1,6 @@
 import "./about.css";
-import { FaFacebook, FaInstagram, FaWhatsapp } from "react-icons/fa";
-import MyImg from "../../images/simpleSupermarket.jpeg";
+import supermarket from './supermarket1.png'
+
 function About() {
   return (
     <div className="about-main">
@@ -19,7 +19,7 @@ function About() {
         humour, or non-characteristic words etc.
       </p>
       <div className="about-img-map">
-        <img className="about-image" src={MyImg} />
+        <img className="about-image" src={supermarket} alt=""/>
         <iframe
           title="Map of Halabi Supermarket"
           className="about-map"
@@ -32,6 +32,7 @@ function About() {
           referrerpolicy="no-referrer-when-downgrade"
         ></iframe>
       </div>
+   
     </div>
   );
 }
