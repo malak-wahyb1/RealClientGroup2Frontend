@@ -39,6 +39,7 @@ const theme = createTheme();
 
 export default function SignIn() {
   const { addToken } = useContext(userContext);
+  const {userInfo}=useContext(userContext)
   const {goSignUp}=useContext(userContext)
 
   const [email, setEmail] = useState();
@@ -56,8 +57,9 @@ export default function SignIn() {
           password,
         }
       );
-      console.log(response.data.token);
+      console.log(response.data.user);
       addToken(response.data.token);
+      userInfo(response.data.user.name, response.data.user.phoneNum,response.data.user.email,response.data.user.address)
       toast.success("logIn successful");
       navigate(from);
 

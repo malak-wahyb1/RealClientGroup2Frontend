@@ -31,6 +31,7 @@ function App() {
     <div className="App">
       <UserProvider>
       <CartProvider>
+        
         <Routes>
           <Route path="/dashboard/admin" element={<LoginAdmin />} />
           <Route path="/dashboard/admin" element={<Admin />}>
@@ -56,13 +57,14 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/profile" element={<Profile />} />
-          </Route>
-          <Route path="/user" element={<LoginUser/>}>
+            <Route path="/user" element={<LoginUser/>}>
           <Route path="/user/signIn" element={<SignIn/>} />
           <Route path="/user/signUp" element={<SignUp/>} />
           <Route path="/user/profile" element={<Profile/>} />
 
           </Route>
+          </Route>
+      
         
         </Routes>
       </CartProvider>

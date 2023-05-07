@@ -8,7 +8,6 @@ import { useState } from "react";
 import { Button } from "@mui/material";
 import { toast } from "react-hot-toast";
 
-
 export default function CardProduct() {
   const { addToCart } = useContext(CartContext);
 
@@ -16,89 +15,88 @@ export default function CardProduct() {
     {
       id: "1",
       name: "nescafe",
-      price: "200.000LL",
+      price: "200000",
       image: product,
       icon: addtocart,
     },
     {
       id: "2",
       name: "batata",
-      price: "600.000LL",
+      price: "600000",
       image: product,
       icon: addtocart,
     },
     {
       id: "3",
       name: "capp",
-      price: "900.000LL",
+      price: "900000",
       image: product,
       icon: addtocart,
     },
     {
       id: "4",
       name: "nescafe",
-      price: "200.000LL",
+      price: "200000",
       image: product,
       icon: addtocart,
     },
     {
       id: "5",
       name: "batata",
-      price: "600.000LL",
+      price: "600000",
       image: product,
       icon: addtocart,
     },
     {
       id: "6",
       name: "capp",
-      price: "900.000LL",
+      price: "900000LL",
       image: product,
       icon: addtocart,
     },
     {
       id: "7",
       name: "nescafe",
-      price: "200.000LL",
+      price: "200000",
       image: product,
       icon: addtocart,
     },
     {
       id: "8",
       name: "batata",
-      price: "600.000LL",
+      price: "600000",
       image: product,
       icon: addtocart,
     },
     {
       id: "9",
       name: "capp",
-      price: "900.000LL",
+      price: "900000",
       image: product,
       icon: addtocart,
     },
     {
       id: "10",
       name: "nescafe",
-      price: "200.000LL",
+      price: "200000",
       image: product,
       icon: addtocart,
     },
     {
       id: "11",
       name: "batata",
-      price: "600.000LL",
+      price: "600000",
       image: product,
       icon: addtocart,
     },
     {
       id: "12",
       name: "capp",
-      price: "900.000LL",
+      price: "900000",
       image: product,
       icon: addtocart,
     },
   ];
-  
 
   const [cart, setCart] = useState({});
 
@@ -107,14 +105,13 @@ export default function CardProduct() {
       ...prevCart,
       [id]: (prevCart[id] || 0) + 1,
     }));
-    toast('Successfully Added!', {
-      icon: '👏',
+    toast("Successfully Added!", {
+      icon: "👏",
     });
   };
 
   return (
     <div className="card-contain">
-
       {cards.map((some, index) => (
         <div className="containerProduct" key={some.id}>
           <div className="cardProduct">
@@ -132,7 +129,7 @@ export default function CardProduct() {
                 <h3>Price :</h3>
                 <span>{some.price}</span>
               </div>
-            
+
               <Button
                 onClick={() => {
                   addToCart(
@@ -143,14 +140,13 @@ export default function CardProduct() {
                     cart[some.id] || 1
                   );
                   handleAddToCart(some.id);
-               
                 }}
                 sx={{
-                  backgroundColor:"#0097b2",
-                  color:"white"
-                  ,'&:hover':{
-                    color:"#0097b2"
-                  }
+                  backgroundColor: "#0097b2",
+                  color: "white",
+                  "&:hover": {
+                    color: "#0097b2",
+                  },
                 }}
               >
                 Add To Cart
@@ -159,7 +155,6 @@ export default function CardProduct() {
           </div>
         </div>
       ))}
- 
     </div>
   );
 }

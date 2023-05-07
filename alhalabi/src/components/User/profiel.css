@@ -1,22 +1,22 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Bree+Serif&display=swap");
 
-
-.profile{
-    width:80%;
-  margin:auto ;
+.profile {
+  width: 80%;
+  margin: auto;
   margin-top: 8em;
-
+  color: var(--secondary);
+  font-family: sans-serif;
 }
+
 .profile-header {
   background: #fff;
   /* width: 100%; */
   display: flex;
   height: 190px;
-  
+
   position: relative;
   box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.2);
- 
 }
 
 .profile-img {
@@ -39,11 +39,11 @@
 }
 
 .profile-nav-info {
-  /* float: left; */
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-top: 60px;
+  align-items: flex-end;
+  justify-content: space-around;
+  height: 60%;
+  width: 100%;
   padding: 0;
   margin: 0;
 }
@@ -60,16 +60,13 @@
   display: flex;
   font-weight: bold;
   align-items: center;
-  color: #777;
   font-size: 1.5em;
 }
 
 .profile-nav-info .info p {
   margin-right: 5px;
-  margin-left:5px;
+  margin-left: 5px;
 }
-
-
 
 .main-bd {
   width: 100%;
@@ -79,14 +76,13 @@
 
 .profile-side {
   width: 300px;
-  height:38.6vh;
+  height: 38.6vh;
   background: #fff;
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
   padding: 90px 30px 20px;
   font-family: sans-serif;
   margin-left: 10px;
   z-index: 1;
-  
 }
 
 .profile-side p {
@@ -131,8 +127,6 @@ button.bookBtn:hover {
   background: #108094;
 }
 
-
-
 .user-rating {
   display: flex;
 }
@@ -149,21 +143,19 @@ button.bookBtn:hover {
   font-size: 0.9rem;
 }
 
-
-
-
-
-
 .right-side {
   padding: 20px;
-
+  font-weight: 100;
   text-align: center;
 }
 
-
-.profile-posts tr td{
-  color:#666;
-  margin:10px;
+.profile-posts tr td {
+  color: #666;
+  margin: 10px;
+}
+.profile .info span {
+  font-size: 1.5rem;
+  color: var(--accent);
 }
 
 @media (max-width: 1100px) {
@@ -180,10 +172,10 @@ button.bookBtn:hover {
   }
   .right-side {
     padding: 0;
-    
+
     text-align: center;
   }
-  .profile-btn{
+  .profile-btn {
     display: block;
   }
 }
@@ -192,11 +184,9 @@ button.bookBtn:hover {
   body {
     margin: 0 20px;
   }
-  .profile{
-  
-  margin:auto ;
- 
-}
+  .profile {
+    margin: auto;
+  }
   .profile-header {
     display: flex;
     height: 100%;
@@ -251,17 +241,15 @@ button.bookBtn:hover {
   }
   .right-side {
     padding: 0;
-   
+
     text-align: center;
   }
-  .profile-btn{
+  .profile-btn {
     display: block;
   }
 }
 
 @media (max-width: 400px) {
-
-
   .profile-option {
     width: 30px;
     height: 30px;
@@ -283,12 +271,12 @@ button.bookBtn:hover {
     width: 15px;
     font-size: 0.7rem;
   }
-.profile-nav-info {
-  display:flex;
-  flex-direction: column;
-  justify-content: center;
-  justify-items:center ;
-}
+  .profile-nav-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+  }
   .profile-nav-info h3 {
     font-size: 1.9rem;
   }
@@ -298,30 +286,17 @@ button.bookBtn:hover {
     font-size: 0.7rem;
   }
   .profile-side {
-   
     height: auto;
   }
   button.bookBtn {
     width: 150px;
   }
   .right-side {
-   padding: 0;
-  
+    padding: 0;
+
     text-align: center;
   }
-  .profile-btn{
+  .profile-btn {
     display: block;
   }
 }
-/* #see-more-bio,
-#see-less-bio {
-  color: blue;
-  cursor: pointer;
-  text-transform: lowercase;
-} */
-/* .right-side h1 {
-  font-family:  sans-serif;
-  display: flex;
-  justify-content: center;
-  margin: 20px auto;
-} */
