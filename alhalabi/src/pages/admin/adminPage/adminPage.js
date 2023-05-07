@@ -57,15 +57,15 @@ function AdminPage() {
                   <PersonIcon sx={{ marginTop: "17px" }} />
 
                   <section className="admin_action">
-                    <EditAdmin
+                    {/* <EditAdmin */}
                       inputFields={[
                         { name: "userName", label: "User Name", type: "text" },
                         { name: "email", label: "Email", type: "email" },
                         { name: "FirstName", label: "FullName", type: "email" },
                       ]}
                       title="Admin"
-                    />
-                    <DeleteComponent />
+                    /
+                    {/* <DeleteComponent /> */}
                   </section>
 
                 </div>

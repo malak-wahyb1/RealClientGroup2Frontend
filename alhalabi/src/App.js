@@ -12,7 +12,6 @@ import Dashboard from "./pages/admin/dashboard/dashboardAdmin";
 import AdminPage from "./pages/admin/adminPage/adminPage";
 import Category from "./pages/admin/category/category";
 import SubCategory from "./pages/admin/subcategory/subCategory";
-import Contact from "./pages/admin/contactus/contact.js";
 import RequireAuth from "./components/context/RequireAuth";
 import Profile from "./components/User/profiel";
 import Review from "./pages/admin/ReviewAdmin/review";
@@ -23,8 +22,8 @@ import Offers from "./pages/admin/offers/offers";
 import Payment from "./pages/admin/Payment/payments";
 
 import { CartProvider } from "./components/card/productContext";
-import RequireAuth from "./components/context/RequireAuth";
-import Profile from "./components/User/profiel";
+// import RequireAuth from "./components/context/RequireAuth";
+// import Profile from "./components/User/profiel";
 import Checkout from "./pages/checkout/checkout";
 
 // import Footer from "./components/footer/footer";

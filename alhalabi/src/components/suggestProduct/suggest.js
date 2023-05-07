@@ -1,12 +1,12 @@
-import * as React from 'react';
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
-import { Link } from 'react-router-dom';
+import * as React from "react";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
+import { Link } from "react-router-dom";
 
 export default function FormDialog() {
   const [open, setOpen] = React.useState(false);
@@ -21,10 +21,12 @@ export default function FormDialog() {
 
   return (
     <div>
-      <Link onClick={handleClickOpen} >
-        Suggest Product
-      </Link>
-      <Dialog open={open} onClose={handleClose} sx={{backgroundColor:"#e2eaf2"}}>
+      <Link onClick={handleClickOpen}>Suggest Product</Link>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        sx={{ backgroundColor: "#e2eaf2" }}
+      >
         <DialogTitle>Enter your name</DialogTitle>
         <DialogContent>
           <DialogContentText>

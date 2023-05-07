@@ -3,8 +3,6 @@ import img from "../../images/imgContact.png";
 import "./contact.css";
 import { Input, Button, Rating } from "@mui/material";
 import { MdPlace, MdLocalPhone, MdEmail } from "react-icons/md";
-
-import { Rating } from "@mui/lab";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -31,7 +29,6 @@ export default function Contact() {
         console.log(err);
       });
   };
-
 
   return (
     <div className="container">
@@ -133,7 +130,6 @@ export default function Contact() {
                 console.log(res);
               })
               .catch((err) => {
-                toast.error("Message not sent successfully");
                 console.log(err);
               });
           }}
