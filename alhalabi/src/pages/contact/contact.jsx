@@ -37,6 +37,7 @@ export default function Contact() {
     setUser(false)
     }
   };
+
  const handleSubmitReview=(e)=>{
   if(token){
     axios
@@ -55,6 +56,7 @@ export default function Contact() {
       }
    }
 if(user){
+
   return (
     <div className="container">
       <h1>Get In Touch</h1>
@@ -125,8 +127,7 @@ if(user){
         <label htmlFor="rating">Rating:</label>
         <Rating
           name="rating"
-         
-       
+
           max={5}
           required
         />

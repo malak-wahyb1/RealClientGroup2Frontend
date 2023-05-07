@@ -5,15 +5,17 @@ import logoSmall from "./logo-small.png";
 import { Link } from "react-router-dom";
 import order from "./order.png";
 import InfoIcon from "@mui/icons-material/Info";
-import AssignmentIcon from "@mui/icons-material/Assignment";
+// import AssignmentIcon from "@mui/icons-material/Assignment";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import ContactPhoneIcon from "@mui/icons-material/ContactPhone";
+
 import FormDialog from "../suggestProduct/suggest";
 import { Home, Person } from "@mui/icons-material";
 import { useContext } from "react";
 import cartContext from "../../components/card/productContext";
 import { useEffect } from "react";
 import userContext from ".././../components/context/userContext";
+
 function Navbar() {
   const { token } = useContext(userContext);
   const { items } = useContext(cartContext);
@@ -68,21 +70,17 @@ function Navbar() {
             <InfoIcon />
           </Link>
         </li>
+
         <li>
-          <Link>
-            <FormDialog />
-          </Link>
-          <Link>
-            <AssignmentIcon />
-          </Link>
-        </li>
-        <li>
+
           <Link to="/contact">Contact us</Link>
           <Link>
             <ContactPhoneIcon />
           </Link>
         </li>
+
         <li className="checkout">
+
           <Link to="/checkout">
             <img src={order} alt="order" />
             <span style={{ color: "#06023b" }}>

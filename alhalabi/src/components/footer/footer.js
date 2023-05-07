@@ -1,6 +1,8 @@
 import "./footer.css";
 import React from "react";
 import { FaFacebook, FaInstagram, FaWhatsapp } from "react-icons/fa";
+import FormDialog from "../suggestProduct/suggest";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -29,6 +31,9 @@ function Footer() {
             >
               <FaWhatsapp className="icon-footer" />
             </a>
+          </li>
+          <li className="suggest">
+            <FormDialog />
           </li>
           <li className="li-footer">
             <a className="a-footer" href="/dashboard/contact-us">

@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 import { useAnimate, usePresence } from "framer-motion";
 import door from "./door.png";
 import Offer from "../../components/offers/product";
-import { Rating } from "@mui/material";
+// import { Rating } from "@mui/material";
 function Home() {
-  const [className, setClassName] = useState("text_hero");
+  const [ setClassName] = useState("text_hero");
   useEffect(() => {
     if (isPresent) {
       const enterAnimation = async () => {
@@ -26,7 +26,7 @@ function Home() {
       enterAnimation();
     }
   });
-  const [isPresent, safeToRemove] = usePresence();
+  const [isPresent] = usePresence();
   const [scope, animate] = useAnimate();
   return (
     <div className="Home">
