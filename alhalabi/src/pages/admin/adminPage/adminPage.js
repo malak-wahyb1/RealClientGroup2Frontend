@@ -4,8 +4,6 @@ import PersonIcon from "@mui/icons-material/Person";
 import "./adminPage.css";
 import CustomizedMenus from "../../../components/admin/role";
 import FormComponent from "../../../components/admin/addForm/addFom";
-import DeleteComponent from "../../../components/admin/delete/delete";
-import EditAdmin from "../../../components/admin/editForm/editAdmin";
 
 function AdminPage() {
   const [Admin, setAdmin] = useState([]);
@@ -37,12 +35,15 @@ function AdminPage() {
     <section>
       <h1>Admin</h1>
       <FormComponent
-        // inputFields={[
-        //   { name: "userName", label: "User Name", type: "text" },
-        //   { name: "email", label: "Email", type: "email" },
-        //   { name: "FirstName", label: "FullName", type: "email" },
-        // ]}
+        inputFields={[
+          { name: "username", label: "User Name", type: "text" },
+          { name: "email", label: "Email", type: "email" },
+          { name: "first_name", label: "FullName", type: "text" },
+          { name: "last_name", label: "LastName", type: "text" },
+          { name: "password", label: "Password", type: "text" },
+        ]}
         title="Admin"
+        url="auth"
       />
 
       <section className="admin-cards">
@@ -50,22 +51,13 @@ function AdminPage() {
           return (
             <div class="card">
               <div class="interests">
-                <CustomizedMenus />
+                <CustomizedMenus id={admin.id} />
               </div>
               <div class="left">
                 <div class="flag_wrapper">
                   <PersonIcon sx={{ marginTop: "17px" }} />
 
-                  <section className="admin_action">
-
-                      inputFields={[
-                        { name: "userName", label: "User Name", type: "text" },
-                        { name: "email", label: "Email", type: "email" },
-                        { name: "FirstName", label: "FullName", type: "email" },
-                      ]}
-                      title="Admin"
-
-                  </section>
+                  <section className="admin_action"></section>
                 </div>
               </div>
 

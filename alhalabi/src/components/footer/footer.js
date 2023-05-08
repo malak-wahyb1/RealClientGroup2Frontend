@@ -32,9 +32,7 @@ function Footer() {
               <FaWhatsapp className="icon-footer" />
             </a>
           </li>
-          <li className="suggest">
-            <FormDialog />
-          </li>
+         
           <li className="li-footer">
             <a className="a-footer" href="/dashboard/contact-us">
               Contact Us

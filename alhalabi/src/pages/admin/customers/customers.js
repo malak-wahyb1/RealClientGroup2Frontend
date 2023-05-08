@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Table from "../../../components/admin/tables/table.js";
 import DeleteComponent from "../../../components/admin/delete/delete.js";
+import FormComponent from "../../../components/admin/addForm/addFom.js";
+import EditAdmin from "../../../components/admin/editForm/editAdmin.js";
 
 function Customers() {
   const [Customers, setCustomers] = useState([]);
@@ -26,26 +28,47 @@ function Customers() {
   }, []);
 
   const columns = [
-    { field: "id", headerName: "ID", width: 100 },
-    { field: "name", headerName: "Name", width: 150 },
-    { field: "phoneNum", headerName: "PhoneNumber", width: 150},
-    { field: "email", headerName: "Email", width: 250 },
-    
+
+    { field: "name", headerName: "Name", width: 200 },
+    { field: "phoneNum", headerName: "Phone Number", width: 200},
+    { field: "email", headerName: "Email", width: 250 }, 
     { field: "address", headerName: "Address", width: 250 },
-    { field: "role", headerName: "Role", width: 150 },
     {
-      field: "delete",
-      headerName: "Delete",
-      width: 125,
+      field: "Action",
+      headerName: "Action",
+      width: 275,
       renderCell: (params) => {
-        return <DeleteComponent Id={params.row.id} />;
+        return(
+          <>
+           <DeleteComponent Id={params.row.id} />
+           <EditAdmin   inputFields={[
+          { name: "name", label: "Name", type: "text" },
+          { name: "phoneNum", label: "Phone Number ", type: "email" },
+          { name: "FirstName", label: "FullName", type: "email" },
+        ]}
+        title="Customer"
+        url="customer"
+        />
+           </>
+           );
       },
-    },
+   
+}
   ];
 
   return (
     <div>
       <h1>Customers</h1>
+     <FormComponent    inputFields={[
+          { name: "name", label: "Name", type: "text" },
+          { name: "phoneNum", label: "Phone Number", type: "text" },
+          { name: "email", label: "Email", type: "email" },
+          { name: "address", label: "Address", type: "text" },
+          { name: "password", label: "Password", type: "text" },
+        ]}
+        title="Customer"
+        url="customer"
+        />
       <Table columns={columns} rows={Customers} />
     </div>
   );

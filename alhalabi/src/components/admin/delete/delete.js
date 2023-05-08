@@ -21,12 +21,15 @@ function DeleteComponent(props) {
     setOpen(false);
 
     axios
-      .delete(`${process.env.REACT_APP_URL}/${props.url}/${props.Id}`)
+      .delete(`${process.env.REACT_APP_URL}${props.url}/${props.Id}`)
       .then((response) => {
         console.log(props.Id);
-        props.onDeleteAdmin(props.Id);
+       
       })
-      .catch((error) => {});
+      .catch((error) => {
+console.log(error.message)
+        console.log(props.Id);
+      });
   };
 
   return (
@@ -40,7 +43,7 @@ function DeleteComponent(props) {
           color: "#0097B2",
         }}
       >
-        {<Delete  sx={{color:"white"}} />}
+        {<Delete  sx={{color:"#0097b2"}} />}
        Delete
       </Button>
 
@@ -58,7 +61,7 @@ function DeleteComponent(props) {
             
           }}
         >
-          {`Are you sure do you want to delete this ${props.text}?`}
+          {`Are you sure do you want to delete this ${props.title}?`}
         </DialogTitle>
         <DialogActions
           sx={{

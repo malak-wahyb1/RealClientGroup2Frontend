@@ -4,7 +4,7 @@ import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
-// import DialogContentText from "@mui/material/DialogContentText";
+
 import DialogTitle from "@mui/material/DialogTitle";
 import EditIcon from "@mui/icons-material/Edit";
 import "./editForm.css";
@@ -21,19 +21,17 @@ export default function EditAdmin(props) {
   };
 
   return (
-    <section className="addForm">
-      <Sheet
-        sx={{
-          borderRadius: "50px",
-          bgcolor: "#0097B2",
-          padding: "15px",
-          boxShadow: "0px 1px 7px rgba(0, 0, 0, 0.5)",
-        }}
+    <section >
+      <Button
+          sx={{
+      
+            color: "#06023",
+          }}
       >
         <EditIcon
           sx={{
 
-            color: "white",
+            color: "#0097b2",
             width: "30px",
             ":hover": {
               cursor: "pointer",
@@ -41,7 +39,8 @@ export default function EditAdmin(props) {
           }}
           onClick={handleClickOpen}
         />
-      </Sheet>
+        Edit
+      </Button>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle sx={{ color: "#06023B" }}>Edit {props.title}</DialogTitle>
         <DialogContent>

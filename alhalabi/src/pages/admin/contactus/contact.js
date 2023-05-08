@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Table from "../../../components/admin/tables/table.js";
 import DeleteComponent from "../../../components/admin/delete/delete.js";
+import FormComponent from "../../../components/admin/addForm/addFom.js";
 
 
 function ContactDash(){
@@ -24,24 +25,19 @@ function ContactDash(){
         });
     }, []);
     const columns = [
-      { field: "id", headerName: "ID", width: 100 },
+     
         { field: "fullName", headerName: "FullName", width: 300 },
         { field: "message", headerName: "Message", width: 500 },
       { field: "email", headerName: "Email", width: 350 },
-      {
-        field: "delete",
-        headerName: "Delete",
-        width: 125,
-        renderCell: (params) => {
-          return <DeleteComponent Id={params.row.id} />;
-        },
+    { field: "created_at", headerName: "Created_at", width: 400 },
      
-}];
+    ];
  
   return (
     <div>
       <h1>Contact us
       </h1>
+     
       <Table columns={columns} rows={Contact} />
     
 

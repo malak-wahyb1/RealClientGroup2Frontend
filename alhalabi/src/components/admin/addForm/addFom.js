@@ -4,17 +4,26 @@ import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
-
 import DialogTitle from "@mui/material/DialogTitle";
 import AddIcon from "@mui/icons-material/Add";
 import "./addForm.css";
 import { Sheet } from "@mui/joy";
 import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
+import {  toast } from "react-toastify";
+import CategorySelect from "../categorySelect/categorySelect";
+import { useState } from "react";
 
 export default function FormComponent(props) {
   const [open, setOpen] = React.useState(false);
+  const [inputValues, setInputValues] = React.useState({});
 
+  const handleInputChange = (e) => {
+    setInputValues((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    if(selectedCategoryId){
+    setInputValues((prev) => ({ ...prev, category: selectedCategoryId }));
+
+    }
+  };
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -22,30 +31,28 @@ export default function FormComponent(props) {
   const handleClose = () => {
     setOpen(false);
   };
-  const [username, setUsername] = React.useState();
-  const [email, setEmail] = React.useState();
-  const [password, setPassword] = React.useState();
-  const [first_name, setFirstName] = React.useState();
-  const [last_name, setLastName] = React.useState();
+
 
   const handleSubmit = async (e) => {
-    e.preventdefault();
+    e.preventDefault();
     try {
-      const response = await axios.post(`${process.env.REACT_APP_URL}auth/register`, {
-        email,
-        username,
-        password,
-        first_name,
-        last_name,
-      });
+      const response = await axios.post(`${process.env.REACT_APP_URL}${props.url}`, inputValues);
+      console.log(inputValues);
       toast.success("logIn successful");
       console.log(response);
     } catch (err) {
       console.log(err);
-      toast.error("Error add Admin ,please try again")
-      
+      console.log(inputValues);
+
+      toast.error("Error add Admin ,please try again");
     }
   };
+ 
+    const [selectedCategoryId, setSelectedCategoryId] = useState('');
+  
+    const handleCategorySelect = (categoryId) => {
+      setSelectedCategoryId(categoryId);
+    };
 
   return (
     <section className="addForm">
@@ -61,6 +68,7 @@ export default function FormComponent(props) {
           sx={{
             color: "white",
             width: "30px",
+            zIndex:"10000",
             ":hover": {
               cursor: "pointer",
             },
@@ -69,68 +77,29 @@ export default function FormComponent(props) {
         />
       </Sheet>
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle sx={{ color: "#06023B" }}>
+        <DialogTitle sx={{ color: "white",backgroundColor:"#0097b2" }}>
           Add New {props.title}
         </DialogTitle>
        
-      <DialogContent>
+      <DialogContent >
         <form onSubmit={handleSubmit}>
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            id="first_name"
-            label="First Name"
-            name="first_name"
-            autoComplete="first_name"
-            autoFocus
-            onChange={(e) => setFirstName(e.target.value)}
-          />
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            id="last_name"
-            label="Last Name"
-            name="last_name"
-            autoComplete="last_name"
-            autoFocus
-            onChange={(e) => setLastName(e.target.value)}
-          />
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            id="username"
-            label="Username"
-            name="username"
-            autoComplete="username"
-            autoFocus
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
-            autoFocus
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            id="password"
-            label="Password"
-            name="password"
-            type="password"
-            autoComplete="current-password"
-            autoFocus
-            onChange={(e) => setPassword(e.target.value)}
-          />
+        {props.inputFields.map((input, index) => (
+           <TextField
+           key={index}
+         
+           margin="dense"
+           id={input.id}
+           label={input.label}
+           type={input.type}
+           fullWidth
+          name={input.name}
+           onChange={handleInputChange}
+           sx={{ color: "#06023b", backgroundColor: "#0097b2" }}
+         />
+          ))}
+          {props.title==="subCategory"?(<CategorySelect categories={props.categories} onSelect={handleCategorySelect} selectedCategoryId={selectedCategoryId} />
+):("")}
+        
           <DialogActions>
             <Button onClick={handleClose}>Cancel</Button>
             <Button   type="submit">Save</Button>
