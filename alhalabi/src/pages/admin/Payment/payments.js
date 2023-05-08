@@ -14,14 +14,9 @@ function Payment() {
       .get(`${process.env.REACT_APP_URL}Payment`)
       .then((response) => {
         console.log(response);
-        // add an `id` property to each row object
-        const data = response.data.message.map((row, index) => ({
-          ...row,
-          id: index + 1,
-          image: `${process.env.REACT_APP_URL}${row.image}`,
-        }));
+      
 
-        setPayment(data);
+        setPayment(response.data.message);
       })
       .catch((error) => {
         console.log(error);
@@ -45,7 +40,7 @@ function Payment() {
       renderCell: (params) => {
         return (
           <>
-            <DeleteComponent Id={params.row.id} />
+            <DeleteComponent Id={params.row._id} />
             <EditAdmin
               inputFields={[
                 { name: "Name", label: "Name", type: "text" },

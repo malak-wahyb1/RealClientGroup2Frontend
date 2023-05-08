@@ -71,9 +71,5 @@ export const SidebarData = [
     icon: ContactMailIcon,
     heading: "Contact us",
   },
-  {
-    path: "Links",
-    icon: LinkIcon,
-    heading: "Links",
-  },
+  
 ];

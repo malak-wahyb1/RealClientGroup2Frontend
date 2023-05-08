@@ -13,13 +13,8 @@ function Products(){
         .get(`${process.env.REACT_APP_URL}product`)
         .then((response) => {
           console.log(response.data.response);
-          // add an `id` property to each row object
-          const data = response.data.response.map((row, index) => ({
-            ...row,
-            id: index + 1,
-            image: `${process.env.REACT_APP_URL}${row.image}` 
-          }));
-          setProducts(data);
+    
+          setProducts(response.data.response);
         })
         .catch((error) => {
           console.log(error);
@@ -32,7 +27,13 @@ function Products(){
         { field: "price", headerName: "Price", width: 200 },
         { field: "brand", headerName: "Brand", width: 200 },
         { field: "quantity", headerName: "Quantity", width: 200 },
-        { field: "subCategory", headerName: "SubCategory", width: 200 },
+        { field: "subCategory", headerName: "SubCategory", width: 200,valueGetter: (params) => {
+          if (params.row.subCategory && params.row.subCategory.name) {
+            return params.row.subCategory.name;
+          }else{
+            return "No subCategory yet"
+          }
+        } },
         { field: "image", headerName: "Image", width: 200,renderCell:(params)=>{
           return <Avatar alt="Remy Sharp" src={params.row.image} />
         }  },
@@ -43,7 +44,7 @@ function Products(){
           renderCell: (params) => {
             return (
               <>
-                <DeleteComponent Id={params.row.id} />
+                <DeleteComponent Id={params.row._id} />
                 <EditAdmin
                   inputFields={[
                     { name: "userName", label: "User Name", type: "text" },

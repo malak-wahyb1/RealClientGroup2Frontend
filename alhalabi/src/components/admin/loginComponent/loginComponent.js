@@ -9,6 +9,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState, useContext } from "react";
+import adminContext from '../adminContext/adminContext'
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import { useNavigate } from "react-router-dom";
@@ -31,6 +32,7 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function LoginComponent() {
+  const {addTokenAdmin}=useContext(adminContext)
   const [password, setPassword] = useState();
   const [username, setUsername] = useState();
   const navigate = useNavigate();
@@ -42,7 +44,8 @@ export default function LoginComponent() {
         `${process.env.REACT_APP_URL}auth/login`,
         { password, username }
       );
-      console.log(response.data);
+      console.log(response.data.token);
+      addTokenAdmin(response.data.token)
       toast.success("logIn successful");
       navigate("/dashboard/admin/AdminPage");
     } catch (error) {

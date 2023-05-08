@@ -11,12 +11,8 @@ function Orders(){
         .get(`${process.env.REACT_APP_URL}order`)
         .then((response) => {
           console.log(response);
-          // add an `id` property to each row object
-          const data = response.data.message.map((row, index) => ({
-            ...row,
-            id: index + 1,
-          }));
-          setOrders(data);
+         
+          setOrders(response.data.message);
         })
         .catch((error) => {
           console.log(error);
@@ -38,7 +34,7 @@ function Orders(){
           renderCell: (params) => {
             return(
               <>
-               <DeleteComponent Id={params.row.id} />
+               <DeleteComponent Id={params.row._id} />
                <EditAdmin   inputFields={[
               { name: "userName", label: "User Name", type: "text" },
               { name: "email", label: "Email", type: "email" },

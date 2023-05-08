@@ -7,6 +7,7 @@ import MenuItem from "@mui/material/MenuItem";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import EditAdmin from "./editForm/editAdmin";
 import DeleteComponent from "./delete/delete";
+import { Edit } from "@mui/icons-material";
 
 const StyledMenu = styled((props) => (
   <Menu
@@ -53,6 +54,7 @@ const StyledMenu = styled((props) => (
 
 export default function CustomizedMenus(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [openEdit,setOpenEdit] = React.useState(false)
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -86,14 +88,27 @@ export default function CustomizedMenus(props) {
         onClose={handleClose}
       >
         <MenuItem disableRipple>
+        <Button
+     onClick={e=>setOpenEdit(true)}
+      >
+        <Edit
+          
+        />
+        Edit
+      </Button>
           <EditAdmin
-            inputFields={[
-              { name: "userName", label: "User Name", type: "text" },
-              { name: "email", label: "Email", type: "email" },
-              { name: "FirstName", label: "FullName", type: "email" },
-            ]}
-            title="Admin"
-            url="auth"
+          open={openEdit}
+          setOpen={setOpenEdit}
+           inputFields={[
+            { name: "username", label: "User Name", type: "text" },
+            { name: "email", label: "Email", type: "email" },
+            { name: "first_name", label: "FullName", type: "text" },
+            { name: "last_name", label: "LastName", type: "text" },
+            { name: "password", label: "Password", type: "text" },
+          ]}
+          title="Admin"
+          url="auth"
+          Id={props.id}
           />
         </MenuItem>
         <MenuItem disableRipple>

@@ -12,12 +12,8 @@ function AdminPage() {
       .get(`${process.env.REACT_APP_URL}auth`)
       .then((response) => {
         console.log(response.data.response);
-        // add an `id` property to each row object
-        const data = response.data.response.map((row, index) => ({
-          ...row,
-          id: index + 1,
-        }));
-        setAdmin(data);
+     
+        setAdmin(response.data.response);
       })
       .catch((error) => {
         console.log(error);
@@ -49,26 +45,26 @@ function AdminPage() {
       <section className="admin-cards">
         {Admin.map((admin) => {
           return (
-            <div class="card">
-              <div class="interests">
-                <CustomizedMenus id={admin.id} />
+            <div className="card"key={admin._id}>
+              <div className="interests" >
+                <CustomizedMenus id={admin._id} />
               </div>
-              <div class="left">
-                <div class="flag_wrapper">
+              <div className="left">
+                <div className="flag_wrapper">
                   <PersonIcon sx={{ marginTop: "17px" }} />
 
                   <section className="admin_action"></section>
                 </div>
               </div>
 
-              <div class="right">
-                <h2 class="name">{admin.username}</h2>
-                <p class="title">{admin.email}</p>
-                <p class="location">
+              <div className="right">
+                <h2 className="name">{admin.username}</h2>
+                <p className="title">{admin.email}</p>
+                <p className="location">
                   {admin.first_name} {admin.last_name}
                 </p>
 
-                <p class="interests_title">Role:{Role(admin)} </p>
+                <p className="interests_title">Role:{Role(admin)} </p>
               </div>
             </div>
           );

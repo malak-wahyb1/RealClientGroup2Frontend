@@ -15,12 +15,8 @@ function Customers() {
       .get(`${process.env.REACT_APP_URL}customer`)
       .then((response) => {
         console.log(response);
-        // add an `id` property to each row object
-        const data = response.data.message.map((row, index) => ({
-          ...row,
-          id: index + 1,
-        }));
-        setCustomers(data);
+      
+        setCustomers(response.data.message);
       })
       .catch((error) => {
         console.log(error);
@@ -40,7 +36,7 @@ function Customers() {
       renderCell: (params) => {
         return(
           <>
-           <DeleteComponent Id={params.row.id} />
+           <DeleteComponent Id={params.row._id} />
            <EditAdmin   inputFields={[
           { name: "name", label: "Name", type: "text" },
           { name: "phoneNum", label: "Phone Number ", type: "email" },
@@ -48,6 +44,7 @@ function Customers() {
         ]}
         title="Customer"
         url="customer"
+        Id={params.row._id}
         />
            </>
            );

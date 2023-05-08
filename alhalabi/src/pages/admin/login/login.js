@@ -13,5 +13,5 @@ return (
     </section>
   </section>
 )
-}axios.post()
+}
 export default LoginAdmin

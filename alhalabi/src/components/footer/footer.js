@@ -40,7 +40,7 @@ function Footer() {
           </li>
         </ul>
 
-            <p class="copyright">Alhalabi © 2023</p>
+            <p className="copyright">Alhalabi © 2023</p>
       </footer>
     
   );

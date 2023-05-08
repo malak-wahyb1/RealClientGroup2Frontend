@@ -24,16 +24,20 @@ import { UserProvider } from "./components/context/userContext";
 import { CartProvider } from "./components/card/productContext";
 import Checkout from "./pages/checkout/checkout";
 import LoginUser from "./pages/logIn/loginUser";
+import { AdminProvider } from "./components/admin/adminContext/adminContext";
+import { Unauthorized } from "./pages/admin/unauthorized/unauthorized";
 
 // import Footer from "./components/footer/footer";
 function App() {
   return (
     <div className="App">
+      <AdminProvider>
       <UserProvider>
       <CartProvider>
         
         <Routes>
           <Route path="/dashboard/admin" element={<LoginAdmin />} />
+          <Route path="/dashboard/admin/unauthorized" element={<Unauthorized />} />
           <Route path="/dashboard/admin" element={<Admin />}>
             <Route path="/dashboard/admin/dashboard" element={<Dashboard />} />
             <Route path="/dashboard/admin/adminPage" element={<AdminPage />} />
@@ -69,6 +73,7 @@ function App() {
         </Routes>
       </CartProvider>
       </UserProvider>
+      </AdminProvider>
     </div>
   );
 }

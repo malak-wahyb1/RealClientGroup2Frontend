@@ -15,6 +15,7 @@ import TruckAnimation from "../../components/orderAnimation/orderAnimation";
 import userContext from ".././../components/context/userContext";
 import NotUser from "../../components/notUser/notUser";
 import { useEffect } from "react";
+import { ToastBar } from "react-hot-toast";
 
 function Checkout() {
   const { token } = useContext(userContext);
@@ -45,6 +46,9 @@ function Checkout() {
     event.preventDefault();
     items.forEach((item) => updateQuantity(item.id, 0));
     localStorage.removeItem("item");
+    return(
+      <ToastBar/>
+    )
   };
 
   const handleAdd = (id) => {
@@ -209,7 +213,9 @@ function Checkout() {
           <h2>We Are Ready To Packge Your Order </h2>
 
           <TruckAnimation />
+         
         </section>
+
       );
     }
   } else {
